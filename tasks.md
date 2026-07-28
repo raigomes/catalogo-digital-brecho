@@ -1,10 +1,15 @@
-# Tasks — Home Page
+# Tasks — Catálogo Digital Brechó da Maria
 
 > **Fonte:** `.impeccable/surfaces/catalog/brief.md` (direção Zine)
 > **Design Tokens:** `.impeccable/surfaces/catalog/catalogo.pen`
-> **Status:** ✅ Completo
 
-## Setup
+## Fase 1: Home Page ✅
+
+> **Plan:** `docs/superpowers/plans/2026-07-28-google-sheets-rotas.md`
+> **Design:** `docs/superpowers/specs/2026-07-28-catalogo-brecho-design.md`
+> **Status Geral:** ✅ Fases 1-4 completas
+
+### Setup
 
 - [x] **TS-01** Mover `PRODUCT.md`, `briefing.md`, `.impeccable/`, `.opencode/`, `opencode.json`, `AGENTS.md`, `tasks.md` pra fora do diretório
 - [x] **TS-02** `npx create-next-app@latest catalogo-digital-brecho --typescript --tailwind --eslint --app --src-dir --no-import-alias` no diretório vazio
@@ -118,3 +123,45 @@
   - *Busca client-side com debounce 300ms inerentemente <500ms (sem rede)*
 - [x] **VF-04** Responsivo: 2/3/4 colunas — *classes Tailwind confirmadas no HTML*
 - [x] **VF-05** Estados loading funcionais — *loading state com 6 skeletons confirmado no HTML*
+
+---
+
+## Fase 2: Camada de Dados (Google Sheets Mock) ✅
+
+- [x] **GS-01** Criar `src/lib/api.ts` com interface `fetch*` mock:
+  - `fetchProdutos()` → lista todos disponíveis
+  - `fetchProdutoPorId(id)` → um produto ou null
+  - `fetchProdutosPorCategoria(nome)` → filtrados
+  - `fetchCategorias()` → lista de categorias
+  - Delay artificial (50-150ms) simulando latência
+  - Nenhuma página importa `data.ts` diretamente
+- [x] **GS-02** Schema planilha documentado (`.impeccable/surfaces/catalog/google-sheets-schema.md`)
+- [x] **GS-03** Fixture JSON de exemplo (`src/lib/planilha-exemplo.json`) com 3 registros no formato da planilha
+- [ ] **GS-04** Integração real com Google Sheets (quando planilha da Maria estiver pronta)
+
+## Fase 3: Rota `/categoria/[slug]` ✅
+
+- [x] **CR-01** Página de listagem filtrada em `src/app/categoria/[slug]/page.tsx`:
+  - Lê `slug` do params, resolve nome via `fetchCategorias()`
+  - `generateStaticParams` para build estático
+  - `generateMetadata` para SEO
+  - Reaproveita `CardPolaroid`, `SidebarFiltros`, `FiltrosMobile`, `TagCategoria`
+  - Header Zine com ← Voltar + nome categoria
+  - Empty state: "nada nessa edição — volto já!"
+  - `notFound()` se slug não existir
+- [x] **CR-02** `loading.tsx` — skeleton grid (6 cards)
+- [x] **CR-03** `error.tsx` — "nossa tiragem atrasou" + botão retry
+
+## Fase 4: Rota `/produto/[id]` ✅
+
+- [x] **PR-01** Página detalhe em `src/app/produto/[id]/page.tsx`:
+  - Lê `id` do params, busca via `fetchProdutoPorId()`
+  - `generateMetadata` para SEO
+  - Foto grande (aspect 3/4, `priority` loading)
+  - Ficha técnica: nome, preço, tamanhos (tags fita crepe), descrição
+  - `BotaoWhatsApp` com mensagem "Olá! Tenho interesse em [nome] (ref #[id])"
+  - Overlay "Vendido" se `!disponivel`
+- [x] **PR-02** `loading.tsx` — esqueleto foto + ficha
+- [x] **PR-03** `error.tsx` — "nossa tiragem atrasou" + botão retry
+- [x] **PR-04** `not-found.tsx` — "essa peça já era — edição esgotada" + link novidades
+- [x] **PR-05** Botão WhatsApp com mensagem pré-preenchida contextual

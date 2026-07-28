@@ -1,14 +1,15 @@
 # Design: Catálogo Digital Brechó da Maria
 
 > Aprovado em 28/07/2026. Direção visual: Zine Independente.
+> v2 — Adicionado Google Sheets mock + rota categoria + rota produto.
 
 ## Rotas
 
-| Rota | Descrição |
-|------|-----------|
-| `/` | Home: header + busca + filtros + novidades + categorias |
-| `/categoria/[slug]` | Grid filtrado por categoria |
-| `/produto/[id]` | Página detalhe do produto |
+| Rota | Descrição | Status |
+|------|-----------|--------|
+| `/` | Home: header + busca + filtros + novidades + categorias | ✅ Implementada |
+| `/categoria/[slug]` | Grid filtrado por categoria | ⏳ Pendente |
+| `/produto/[id]` | Página detalhe do produto | ⏳ Pendente |
 
 ## Home (`/`)
 
@@ -27,14 +28,83 @@
 - Grid cards à direita: 4 colunas
 - Cards sem rotação negativa (mais sutil)
 
+## Página Categoria (`/categoria/[slug]`)
+
+### Layout
+
+- Header Zine com nome da categoria (ex: "VESTIDOS")
+- Grid de produtos filtrados (2/3/4 col)
+- Busca + filtros (mesmo sistema da Home — reaproveitar `SidebarFiltros`/`FiltrosMobile`)
+- Reaproveitar componentes: `CardPolaroid`, `TagCategoria`
+
+### Estados
+
+- Loading: skeleton grid (mesmo da Home)
+- Vazio: "nada nessa edição — volto já!"
+- Erro: "nossa tiragem atrasou — tenta de novo"
+- Offline: mensagem PWA
+
+### Data flow
+
+1. `params.slug` → resolver nome da categoria via `fetchCategorias()`
+2. `fetchProdutosPorCategoria(nome)` → array filtrado
+3. Se categoria não existir → `notFound()`
+
 ## Página Detalhe (`/produto/[id]`)
 
-Layout vertical scroll:
+### Mobile
+
+Layout scroll vertical:
 
 - **Header** — seta "← Voltar" + nome categoria
 - **Foto grande** — 3:4 ratio, largura total
 - **Ficha** — nome (Courier 16px), preço (rosa 14px bold), tamanhos (tags fita crepe), descrição (Courier 12px)
-- **Botão WhatsApp** — fundo rosa `#ff3b7f`, texto "QUERO ESSE!", link `wa.me` com mensagem pré-preenchida
+- **Botão WhatsApp** — fundo rosa `#ff3b7f`, texto "QUERO ESSE!", link `wa.me` com mensagem "Olá! Tenho interesse em [nome] (ref #[id])"
+
+### Desktop
+
+- Foto + ficha lado a lado (2 col)
+- Foto ocupa 60% largura, ficha 40%
+
+### Estados
+
+- Loading: esqueleto página dupla (retângulo foto + barras texto)
+- Não encontrado: "essa peça já era — edição esgotada" + link voltar
+- Erro/offline: mensagens padrão
+
+## Camada de Dados — Google Sheets Mock
+
+### `src/lib/api.ts`
+
+Interface pública da camada de dados:
+
+```ts
+export async function fetchProdutos(): Promise<Produto[]>
+export async function fetchProdutoPorId(id: string): Promise<Produto | null>
+export async function fetchProdutosPorCategoria(nome: string): Promise<Produto[]>
+export async function fetchCategorias(): Promise<Categoria[]>
+```
+
+Hoje: implementação importa dados sintéticos de `data.ts` e filtra em memória.
+Amanhã: trocar corpo das funções para `fetch()` contra Google Sheets publicada.
+
+Nenhuma página importa `data.ts` diretamente. Só `api.ts`.
+
+### Schema da Planilha (`.impeccable/surfaces/catalog/google-sheets-schema.md`)
+
+| Coluna | Tipo | Exemplo |
+|--------|------|---------|
+| `nome` | texto | Vestido Flor |
+| `descricao` | texto longo | Vestido florido em viscose... |
+| `preco` | número (centavos) | 8990 |
+| `categoria` | texto | Vestidos |
+| `tamanhos` | texto (separado por vírgula) | P, M, G |
+| `fotos` | texto (URLs separadas por vírgula) | https://placehold.co/... |
+| `disponivel` | booleano (VERDADEIRO/FALSO) | VERDADEIRO |
+
+### `src/lib/planilha-exemplo.json`
+
+JSON array com 3-5 registros de exemplo seguindo o schema acima. Servir como fixture para testes e documentação do formato.
 
 ## Filtros
 
@@ -51,7 +121,10 @@ Layout vertical scroll:
 |------------|-----------|--------|
 | `Card` (Polaroid) | `ZIaU6` | ✅ |
 | `Tag Categoria` | `Vemtv` | ✅ |
-| `Botao CTA` | `Y8xMg` | ✅ |
+| `Botao CTA` (WhatsApp) | `Y8xMg` | ✅ |
+| `SidebarFiltros` | — | ✅ |
+| `FiltrosMobile` | — | ✅ |
+| `SecaoNovidades` | — | ✅ |
 
 ## Telas no Design (.pen)
 

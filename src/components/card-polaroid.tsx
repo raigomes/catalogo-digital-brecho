@@ -7,9 +7,10 @@ import { TagCategoria } from "./tag-categoria"
 
 interface CardPolaroidProps {
   produto: Produto
+  showTag?: boolean
 }
 
-export function CardPolaroid({ produto }: CardPolaroidProps) {
+export function CardPolaroid({ produto, showTag = true }: CardPolaroidProps) {
   return (
     <Link
       href={`/produto/${produto.id}`}
@@ -23,9 +24,11 @@ export function CardPolaroid({ produto }: CardPolaroidProps) {
                    active:rotate-0 active:-translate-y-[--hover-lift] active:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]"
       >
         {/* Tag fita crepe */}
-        <div className="absolute -top-1 -left-1 z-10">
-          <TagCategoria label="NOVIDADE" />
-        </div>
+        {showTag && (
+          <div className="absolute -top-1 -left-1 z-10">
+            <TagCategoria label="NOVIDADE" />
+          </div>
+        )}
 
         {/* Foto */}
         <div className="aspect-[3/4] bg-[#e0ddd5] border border-[#1a1a1a] overflow-hidden">

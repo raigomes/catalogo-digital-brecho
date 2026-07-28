@@ -1,0 +1,35 @@
+/* DADOS SINTÉTICOS — fixture para testes */
+/* ATENÇÃO: tamanhos e fotos são strings separadas por vírgula no schema da planilha.
+   A implementação real deve fazer .split(", ") para converter em array. */
+[
+  {
+    "nome": "Vestido Flor",
+    "descricao": "Vestido florido em viscose. Leve, fresco, ideal para dias quentes.",
+    "preco": 8990,
+    "categoria": "Vestidos",
+    "tamanhos": "P, M, G",
+    "fotos": "https://placehold.co/400x600?text=Vestido+Flor",
+    "disponivel": true,
+    "createdAt": "2026-07-28T10:00:00Z"
+  },
+  {
+    "nome": "Blusa Transpassada",
+    "descricao": "Blusa em crepe com amarração lateral. Decote V, manga longa.",
+    "preco": 5990,
+    "categoria": "Blusas",
+    "tamanhos": "P, M",
+    "fotos": "https://placehold.co/400x600?text=Blusa+Transpassada",
+    "disponivel": true,
+    "createdAt": "2026-07-27T14:30:00Z"
+  },
+  {
+    "nome": "Jaqueta Couro",
+    "descricao": "Jaqueta couro legítimo. Preta, zíper diagonal, gola careca.",
+    "preco": 19990,
+    "categoria": "Jaquetas",
+    "tamanhos": "M, G",
+    "fotos": "https://placehold.co/400x600?text=Jaqueta+Couro",
+    "disponivel": true,
+    "createdAt": "2026-07-18T14:20:00Z"
+  }
+]

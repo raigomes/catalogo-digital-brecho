@@ -2,20 +2,28 @@ import type { Produto } from "@/lib/types"
 import { formatPreco } from "@/lib/utils"
 
 interface BotaoWhatsAppProps {
-  produto: Produto
+  produto?: Produto
+  mensagem?: string
 }
 
 const WHATSAPP_NUMBER = "5511999999999" // placeholder — Maria configura depois
 
-export function BotaoWhatsApp({ produto }: BotaoWhatsAppProps) {
-  const mensagem = encodeURIComponent(
-    `Olá! Tenho interesse nessa peça do Brechó da Maria:\n\n` +
-      `*${produto.nome}* - ${formatPreco(produto.preco)}\n` +
-      `Tamanhos: ${produto.tamanhos.join(", ")}\n\n` +
-      `https://brechodamaria.com.br/produto/${produto.id}`
-  )
+export function BotaoWhatsApp({ produto, mensagem }: BotaoWhatsAppProps) {
+  let texto: string
+  if (mensagem) {
+    texto = encodeURIComponent(mensagem)
+  } else if (produto) {
+    texto = encodeURIComponent(
+      `Olá! Tenho interesse nessa peça do Brechó da Maria:\n\n` +
+        `*${produto.nome}* - ${formatPreco(produto.preco)}\n` +
+        `Tamanhos: ${produto.tamanhos.join(", ")}\n\n` +
+        `https://brechodamaria.com.br/produto/${produto.id}`
+    )
+  } else {
+    texto = ""
+  }
 
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${mensagem}`
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${texto}`
 
   return (
     <a
