@@ -193,3 +193,189 @@
   - Adicionar `aria-pressed` nos botões de tamanho
   - Adicionar `focus-visible:outline` para foco visível
   - Coder → Reviewer após correção
+
+---
+
+## Fase 6: PWA + Service Worker
+
+> **Fonte:** `brief.md` — "PWA (service worker)" e "offline (PWA cache)"
+> **Status:** Layout já referencia `/manifest.json` mas arquivo não existe. Service worker ausente.
+
+### Contexto
+
+O layout (`src/app/layout.tsx`) já exporta `manifest: "/manifest.json"` e `appleWebApp` metadata. O arquivo `public/manifest.json` **não existe**. Service worker **não existe**. O ícone `public/logo.png` tem 16×16 — muito pequeno para PWA.
+
+### Tasks
+
+- [x] **PW-01** Criar `public/manifest.json`:
+  - `name`: "BreChó da Maria"
+  - `short_name`: "BreChó"
+  - `description`: "Catálogo digital de moda feminina seminova"
+  - `start_url`: "/"
+  - `display`: "standalone"
+  - `background_color` e `theme_color`: `#f4f1ea`
+  - `icons`: referenciar `/icon-192.png` e `/icon-512.png`
+- [x] **PW-02** Gerar ícones PWA:
+  - Criar `public/icon-192.png` e `public/icon-512.png`
+  - Abordagem: gerar SVG inline e converter para PNG via script Node.js (ex: `scripts/generate-icons.mjs` com `sharp` ou `canvas`), OU criar manualmente PNGs placeholder com fundo sólido `#1a1a1a` e texto "B" centralizado
+  - Ideal: usar `sharp` (já disponível como dependência do Next.js via turbopack) ou instalar `@aspect-build/generate-pwa-icons`
+  - Fallback simples: gerar PNGs 1x1 pixel e escalar (pragmático para dev)
+- [x] **PW-03** Criar `public/sw.js` (service worker):
+  - Cache-first para assets estáticos (CSS, JS, imagens, fontes)
+  - Network-first para páginas (HTML)
+  - Cache dinâmico para requisições de API (Google Sheets mock)
+  - Estratégia: `CACHE_NAME = "brecho-v1"`
+  - Precisa registrar via JS (não funciona em `public/` como static file puro sem registro)
+- [x] **PW-04** Registrar service worker:
+  - Criar `src/components/service-worker-register.tsx` (client component)
+  - Registrar `sw.js` apenas no browser (`typeof window !== "undefined"`)
+  - Importar no layout
+- [x] **PW-05** Verificar PWA:
+  - Lighthouse PWA audit (manifest, icons, SW registrado, offline mode, splash screen)
+  - `npm run build` sem erros
+  - Testar offline: carregar página, desligar rede, recarregar → ver mensagem "modo zine — dados offline"
+
+### Próximos Passos (texto para o coder)
+
+```
+## PW-01: Criar manifest.json
+
+Criar `public/manifest.json` com:
+
+```json
+{
+  "name": "BreChó da Maria",
+  "short_name": "BreChó",
+  "description": "Catálogo digital de moda feminina seminova",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f1ea",
+  "theme_color": "#f4f1ea",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
+```
+
+## PW-02: Gerar ícones PWA
+
+Precisa de 2 PNGs: 192×192 e 512×512.
+
+Abordagem: criar script `scripts/generate-icons.mjs` que gera PNGs minimalistas com fundo `#1a1a1a` (toner) e letra "B" centralizada.
+
+Requisitos do script:
+- Usar `sharp` (instalar via npm)
+- Gerar `public/icon-192.png` e `public/icon-512.png`
+- Fundo: `#1a1a1a`
+- Texto: "B" em branco, Courier-like, centralizado
+- Rodar com `node scripts/generate-icons.mjs`
+
+Se `sharp` não funcionar, fallback: gerar SVG e salvar como PNG (browser converte). Ou simplesmente criar PNGs placeholder 1×1 com a cor correta.
+
+## PW-03: Service worker
+
+Criar `public/sw.js`:
+
+```js
+const CACHE_NAME = "brecho-v1"
+const STATIC_ASSETS = [
+  "/",
+  "/manifest.json",
+  "/icon-192.png",
+  "/icon-512.png",
+]
+
+// Instalação: cachear assets estáticos
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(STATIC_ASSETS))
+  )
+})
+
+// Ativação: limpar caches antigos
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    caches.keys().then((keys) =>
+      Promise.all(keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k)))
+    )
+  )
+})
+
+// Interceptar fetch: cache-first para assets, network-first para páginas
+self.addEventListener("fetch", (event) => {
+  const { request } = event
+  const url = new URL(request.url)
+
+  // Assets estáticos: cache-first
+  if (
+    request.destination === "style" ||
+    request.destination === "script" ||
+    request.destination === "image" ||
+    request.destination === "font" ||
+    url.pathname.match(/\.(png|jpg|jpeg|svg|gif|ico|webp|css|js|woff2?)$/)
+  ) {
+    event.respondWith(
+      caches.match(request).then((cached) => cached || fetch(request).then((res) => {
+        const clone = res.clone()
+        caches.open(CACHE_NAME).then((cache) => cache.put(request, clone))
+        return res
+      }))
+    )
+    return
+  }
+
+  // Páginas e API: network-first com fallback pra cache
+  event.respondWith(
+    fetch(request)
+      .then((res) => {
+        const clone = res.clone()
+        caches.open(CACHE_NAME).then((cache) => cache.put(request, clone))
+        return res
+      })
+      .catch(() => caches.match(request))
+  )
+})
+```
+
+## PW-04: Registrar service worker
+
+Criar `src/components/service-worker-register.tsx`:
+
+```tsx
+"use client"
+
+import { useEffect } from "react"
+
+export function ServiceWorkerRegister() {
+  useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/sw.js")
+    }
+  }, [])
+
+  return null
+}
+```
+
+Importar no `src/app/layout.tsx` dentro do body, após ViewTransitionsProvider.
+
+## PW-05: Verificar
+
+1. `npm run build`
+2. Rodar dev, abrir Chrome DevTools → Application → Manifest (verificar se carrega)
+3. Application → Service Workers (verificar se registrado)
+4. Testar offline: habilitar "Offline" no DevTools, recarregar → página deve carregar do cache
+5. Lighthouse PWA audit
+```
+

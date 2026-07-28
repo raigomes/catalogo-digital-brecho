@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next"
 import { Courier_Prime } from "next/font/google"
 import { ViewTransitionsProvider } from "@/components/view-transitions-provider"
+import { ServiceWorkerRegister } from "@/components/service-worker-register"
 import "./globals.css"
 
 const courierPrime = Courier_Prime({
@@ -41,6 +42,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <ViewTransitionsProvider>{children}</ViewTransitionsProvider>
+        <ServiceWorkerRegister />
       </body>
     </html>
   )
