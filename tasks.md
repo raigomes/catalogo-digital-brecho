@@ -189,3 +189,7 @@
   - Desktop skeleton: mostra header + 2 colunas (placeholder foto + placeholder info)
   - Mobile: mantém skeleton atual
 - [x] **DP-03** `npm run build` sem erros ✅
+- [x] **DP-04** Acessibilidade botões tamanho:
+  - Adicionar `aria-pressed` nos botões de tamanho
+  - Adicionar `focus-visible:outline` para foco visível
+  - Coder → Reviewer após correção

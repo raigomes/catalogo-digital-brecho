@@ -47,8 +47,9 @@ export function InfoProduto({ produto }: Props) {
               <button
                 key={t}
                 type="button"
+                aria-pressed={isSelected}
                 onClick={() => setSelectedSize(isSelected ? null : t)}
-                className={`font-mono text-[11px] uppercase tracking-wider px-2.5 py-1 border border-[#1a1a1a] cursor-pointer transition-all duration-150 ${
+                className={`font-mono text-[11px] uppercase tracking-wider px-2.5 py-1 border border-[#1a1a1a] cursor-pointer transition-all duration-150 focus-visible:outline-2 focus-visible:outline-[#ff3b7f] focus-visible:outline-offset-1 ${
                   isSelected
                     ? "bg-[#1a1a1a] text-[#f4f1ea]"
                     : "bg-[#f5d742] text-[#1a1a1a]"
