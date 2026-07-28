@@ -35,7 +35,7 @@ export default async function CategoriaPage({ params }: Props) {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#f4f1ea]">
-      <header className="bg-[#1a1a1a] px-4 py-4 flex items-center gap-4">
+      <header className="bg-[#1a1a1a] px-4 py-4 flex items-center justify-center gap-4">
         <Link
           href="/"
           className="text-[#f4f1ea] text-xs uppercase tracking-widest hover:text-[#ff3b7f] transition-colors"

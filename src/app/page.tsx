@@ -144,7 +144,7 @@ export default function HomePage() {
 
       {/* ===== HEADER ===== */}
       <header className="bg-[#1a1a1a] px-4 py-4">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center justify-center gap-3">
           <Image src="/sacola.png" alt="" width={24} height={24} className="invert" />
           <h1 className="font-mono text-xl text-[#f4f1ea] uppercase tracking-[0.15em]">
             BREChÓ DA MARIA
