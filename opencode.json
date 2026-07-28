@@ -1,0 +1,51 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "owner",
+  "instructions": ["AGENTS.md"],
+  "agent": {
+    "owner": {
+      "description": "Orquestrador: decide o que construir, delega ao Coder, revisa resultado, coordena o Review.",
+      "model": "google/antigravity-gemini-3-flash",
+      "mode": "primary",
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true,
+        "task": true
+      }
+    },
+    "coder": {
+      "description": "Implementa features seguindo especificação do Owner. Focado em codar, não em decisões de design.",
+      "model": "google/antigravity-gemini-3-flash",
+      "mode": "subagent",
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true,
+        "task": false
+      }
+    },
+    "reviewer": {
+      "description": "Revisa código e UI: qualidade, acessibilidade, performance, aderência ao brief. Só lê, não edita.",
+      "model": "google/antigravity-gemini-3-flash",
+      "mode": "subagent",
+      "tools": {
+        "write": false,
+        "edit": false,
+        "bash": false,
+        "task": false
+      }
+    },
+    "designer": {
+      "description": "Traduz o brief do Impeccable para tokens de design (catalog.pen). Focado em UI/UX, não codifica.",
+      "model": "google/antigravity-gemini-3-flash",
+      "mode": "subagent",
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": false,
+        "task": false
+      }
+    }
+  }
+}

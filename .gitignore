@@ -1,0 +1,39 @@
+# --- OpenCode ---
+# Planos efêmeros gerados durante sessões
+.opencode/plans/*.md
+# Histórico de sessões locais
+.opencode/history/
+# Logs e estado temporário
+.opencode/*.log
+.opencode/state.json
+
+# --- Impeccable ---
+# Configurações locais do desenvolvedor
+.impeccable/config.local.json
+# Estado do Live Mode e sessões
+.impeccable/live/
+# Cache e estado do hook
+.impeccable/hook.cache.json
+.impeccable/hook.pending.json
+# Snapshots de crítica (opcional: manter ignore.md se compartilhar exceções)
+.impeccable/critique/
+!.impeccable/critique/ignore.md
+# Provider smoke tests temporários
+.impeccable/provider-smoke/
+src/__impeccable_provider_smoke_*.html
+
+# --- Geral / Next.js ---
+.env
+.env.local
+.env*.local
+node_modules/
+.next/
+out/
+build/
+dist/
+
+# --- IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo   
