@@ -11,7 +11,11 @@ const sizes = [192, 512]
 async function generateIcons() {
   for (const size of sizes) {
     await sharp(logoPath)
-      .resize(size, size, { fit: "contain", background: { r: 26, g: 26, b: 26, alpha: 1 } })
+      .resize(size, size, {
+        kernel: "nearest",
+        fit: "contain",
+        background: { r: 26, g: 26, b: 26, alpha: 1 },
+      })
       .png()
       .toFile(path.join(publicDir, `icon-${size}.png`))
 
