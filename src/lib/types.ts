@@ -14,3 +14,12 @@ export interface Categoria {
   slug: string;
   nome: string;
 }
+
+// Tipos para filtros
+export type SizeFilter = "TODOS" | "P" | "M" | "G" | "GG"
+export type PriceFilter = "TODOS" | "ATE50" | "50A100" | "100A200" | "MAIS200"
+
+export interface FaixaPreco {
+  label: string
+  value: PriceFilter
+}
