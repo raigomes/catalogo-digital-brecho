@@ -165,3 +165,27 @@
 - [x] **PR-03** `error.tsx` — "nossa tiragem atrasou" + botão retry
 - [x] **PR-04** `not-found.tsx` — "essa peça já era — edição esgotada" + link novidades
 - [x] **PR-05** Botão WhatsApp com mensagem pré-preenchida contextual
+
+## Fase 5: Desktop Produto Detalhe
+
+> **Design:** `.impeccable/surfaces/catalog/catalogo.pen` — frame `AkT9C` "Produto Detalhe Desktop" (1024x812)
+> **Base:** `src/app/produto/[id]/page.tsx` (mobile existe)
+
+- [x] **DP-01** Layout responsivo (`page.tsx`):
+  - Mobile (< 1024px): manter layout atual (stack vertical, foto full-width, info abaixo)
+  - Desktop (≥ 1024px): `lg:flex lg:flex-row` com 2 colunas + gap-6 + px-6
+  - Header em desktop: "BREChÓ DA MARIA" (cor #f4f1ea, fundo #1a1a1a, 20px, uppercase) — sem "← Voltar"
+  - Coluna esquerda: foto grande (`flex-1`, aspect 3/4, border #1a1a1a 1px)
+  - Coluna direita (`flex-1`): stack vertical com gap-4
+    - "← Voltar" link (14px, Courier Prime, #1a1a1a)
+    - Nome produto (24px, Courier Prime, #1a1a1a, bold)
+    - Preço (18px, Courier Prime, #ff3b7f, bold)
+    - Rótulo "TAMANHOS" (11px, Courier Prime, uppercase)
+    - Tags tamanho (flex gap-2, tags fita crepe)
+    - Descrição (12px, Courier Prime, #1a1a1a/80)
+    - CTA WhatsApp (BotaoWhatsApp)
+  - Overlay "Vendido" igual mobile (funciona nos 2 layouts)
+- [x] **DP-02** Loading skeleton (`loading.tsx`) responsivo:
+  - Desktop skeleton: mostra header + 2 colunas (placeholder foto + placeholder info)
+  - Mobile: mantém skeleton atual
+- [x] **DP-03** `npm run build` sem erros ✅
