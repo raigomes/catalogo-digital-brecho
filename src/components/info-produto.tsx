@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react"
 import Link from "next/link"
 import { formatPreco } from "@/lib/utils"
 import { BotaoWhatsApp } from "@/components/botao-whatsapp"
@@ -8,6 +11,12 @@ interface Props {
 }
 
 export function InfoProduto({ produto }: Props) {
+  const [selectedSize, setSelectedSize] = useState<string | null>(null)
+
+  const mensagemWhats = selectedSize
+    ? `Olá! Tenho interesse em ${produto.nome} (ref #${produto.id}) — tamanho ${selectedSize}`
+    : `Olá! Tenho interesse em ${produto.nome} (ref #${produto.id})`
+
   return (
     <>
       {/* ← Voltar — só desktop (mobile fica no header) */}
@@ -32,14 +41,24 @@ export function InfoProduto({ produto }: Props) {
           Tamanhos
         </h2>
         <div className="flex flex-wrap gap-2">
-          {produto.tamanhos.map((t) => (
-            <span
-              key={t}
-              className="bg-[#f5d742] text-[#1a1a1a] font-mono text-[11px] uppercase tracking-wider px-2.5 py-1 border border-[#1a1a1a]"
-            >
-              {t}
-            </span>
-          ))}
+          {produto.tamanhos.map((t) => {
+            const isSelected = selectedSize === t
+            return (
+              <button
+                key={t}
+                type="button"
+                onClick={() => setSelectedSize(isSelected ? null : t)}
+                className={`font-mono text-[11px] uppercase tracking-wider px-2.5 py-1 border border-[#1a1a1a] cursor-pointer transition-all duration-150 ${
+                  isSelected
+                    ? "bg-[#1a1a1a] text-[#f4f1ea]"
+                    : "bg-[#f5d742] text-[#1a1a1a]"
+                }`}
+              >
+                {t}
+                {isSelected && " ✓"}
+              </button>
+            )
+          })}
         </div>
       </div>
 
@@ -53,9 +72,7 @@ export function InfoProduto({ produto }: Props) {
       </div>
 
       <div className="pt-4">
-        <BotaoWhatsApp
-          mensagem={`Olá! Tenho interesse em ${produto.nome} (ref #${produto.id})`}
-        />
+        <BotaoWhatsApp mensagem={mensagemWhats} />
       </div>
     </>
   )
