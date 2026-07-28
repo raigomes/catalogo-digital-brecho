@@ -1410,6 +1410,190 @@
           ]
         }
       ]
+    },
+    {
+      "type": "frame",
+      "id": "AkT9C",
+      "x": 3326.9725851281505,
+      "y": 0,
+      "name": "Produto Detalhe Desktop",
+      "clip": true,
+      "width": 1024,
+      "height": 812,
+      "fill": "$bg",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "VYU2a",
+          "name": "Header",
+          "width": "fill_container",
+          "fill": "$fg",
+          "padding": 16,
+          "children": [
+            {
+              "type": "text",
+              "id": "dVJWg",
+              "name": "Logo",
+              "fill": "$bg",
+              "content": "BREChO DA MARIA",
+              "fontFamily": "Courier Prime",
+              "fontSize": 20,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "XrZjb",
+          "name": "MainContent",
+          "width": "fill_container",
+          "height": "fill_container",
+          "gap": 24,
+          "padding": [
+            0,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "JihXi",
+              "name": "ColunaEsquerda",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "id": "D8TPDA",
+                  "name": "FotoGrande",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "./images/generated-1785251303677.png",
+                    "mode": "fill"
+                  },
+                  "width": "fill_container",
+                  "height": 600,
+                  "stroke": "$fg",
+                  "strokeWidth": 1
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "P4SkYd",
+              "name": "ColunaDireita",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "NJVdp",
+                  "name": "Voltar",
+                  "fill": "$fg",
+                  "content": "← Voltar",
+                  "fontFamily": "Courier Prime",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "Rpw0p",
+                  "name": "NomeProduto",
+                  "fill": "$fg",
+                  "content": "Vestido Flor",
+                  "fontFamily": "Courier Prime",
+                  "fontSize": 24,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "A4gdqp",
+                  "name": "Preco",
+                  "fill": "$primary",
+                  "content": "R$ 89,90",
+                  "fontFamily": "Courier Prime",
+                  "fontSize": 18,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "zzuCp",
+                  "name": "LabelTamanhos",
+                  "fill": "$fg",
+                  "content": "TAMANHOS",
+                  "fontFamily": "Courier Prime",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "Qyv6h",
+                  "name": "TamanhosRow",
+                  "width": "fill_container",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "id": "uHBrS",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "TagP",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "P"
+                        }
+                      }
+                    },
+                    {
+                      "id": "k50q3l",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "TagM",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "M"
+                        }
+                      }
+                    },
+                    {
+                      "id": "wfzJA",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "TagG",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "G"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "UYWtN",
+                  "name": "Descricao",
+                  "fill": "$fg",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Vestido florido em viscose. Leve, fresco, ideal para dias quentes. Botões frontais, cintura marcada.",
+                  "fontFamily": "Courier Prime",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "id": "ay3r6",
+                  "type": "ref",
+                  "ref": "Y8xMg",
+                  "name": "CTAWhatsApp"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
   "variables": {
