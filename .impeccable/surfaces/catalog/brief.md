@@ -39,7 +39,7 @@ Hero "Novidades" — 8 cards Polaroid dos últimos itens, como capa de zine. Aba
 
 ### Caminho e interação
 
-Home (novidades + categorias + busca) → clica categoria → `/categoria/[slug]` (grid filtrado) → clica card → `/produto/[id]` (página dupla de zine: foto + ficha técnica). Botão "Quero esse!" → WhatsApp pré-preenchido.
+Home (novidades + categorias + busca) → clica categoria → URL muda para `/?categoria=slug` (grid filtra na home) → clica card → `/produto/[id]` (página dupla de zine: foto + ficha técnica). Botão "Quero esse!" → WhatsApp pré-preenchido.
 
 ### Interação assinatura
 
@@ -51,7 +51,7 @@ Estética raw exige fotos excelentes pra não parecer "quebrado". Contraste pape
 
 ## Escopo e Limites
 
-**Fidelidade:** produção-ready. Todas 3 rotas: `/`, `/categoria/[slug]`, `/produto/[id]`.
+**Fidelidade:** produção-ready. Rotas: `/` (com filtro via URL), `/produto/[id]`.
 
 **Abrangência:** home (hero novidades + categorias + busca), listagem filtrada, detalhe. Sem carrinho, pagamento, login.
 
@@ -68,8 +68,7 @@ Estética raw exige fotos excelentes pra não parecer "quebrado". Contraste pape
 **Hierarquia:** hero novidades → categorias → busca/filtros → grid → detalhe.
 
 **Rotas:**
-- `/` — hero (últimos 8), grid categorias, busca + filtros (categoria/tamanho/preço)
-- `/categoria/[slug]` — grid filtrado por categoria
+- `/` — hero (últimos 8), grid categorias, busca + filtros (categoria/tamanho/preço). Filtro atualiza URL (`?categoria=slug`)
 - `/produto/[id]` — detalhe: foto grande + ficha + WhatsApp
 
 **Responsivo:** celular 2 col, tablet 3 col, desktop 4 col + filtros à esquerda.
