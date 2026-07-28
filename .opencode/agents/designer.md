@@ -1,7 +1,7 @@
 ---
 description: "Traduz o brief do Impeccable (.impeccable/surfaces/catalog/brief.md) para o arquivo de design catalog.pen. Focado em tokens, cores, tipografia e regras visuais."
 mode: subagent
-model: google/antigravity-gemini-3-flash
+model: opencode/deepseek-v4-flash-free
 permissions:
   - action: read
     resource: "*"

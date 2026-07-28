@@ -1,7 +1,7 @@
 ---
 description: Revisa código e UI: qualidade, acessibilidade, performance, aderência ao brief Zine. Apenas lê, não edita.
 mode: subagent
-model: google/antigravity-gemini-3-flash
+model: opencode/deepseek-v4-flash-free
 permissions:
   - action: edit
     resource: "*"

@@ -1,7 +1,7 @@
 ---
 description: Implementa features seguindo especificação do Owner. Focado em codar Next.js + Tailwind + Shadcn/UI.
 mode: subagent
-model: google/antigravity-gemini-3-flash
+model: opencode/deepseek-v4-flash-free
 permissions:
   - action: edit
     resource: "*"

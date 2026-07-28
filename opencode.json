@@ -5,7 +5,7 @@
   "agent": {
     "owner": {
       "description": "Orquestrador: decide o que construir, delega ao Coder, revisa resultado, coordena o Review.",
-      "model": "google/antigravity-gemini-3-flash",
+      "model": "opencode/deepseek-v4-flash-free",
       "mode": "primary",
       "permissions": {
         "edit": "allow",
@@ -20,7 +20,7 @@
     },
     "coder": {
       "description": "Implementa features seguindo especificação do Owner. Focado em codar, não em decisões de design.",
-      "model": "google/antigravity-gemini-3-flash",
+      "model": "opencode/deepseek-v4-flash-free",
       "mode": "subagent",
       "hidden": true,
       "permissions": {
@@ -31,7 +31,7 @@
     },
     "reviewer": {
       "description": "Revisa código e UI: qualidade, acessibilidade, performance, aderência ao brief. Só lê, não edita.",
-      "model": "google/antigravity-gemini-3-flash",
+      "model": "opencode/deepseek-v4-flash-free",
       "mode": "subagent",
       "hidden": true,
       "permissions": {
@@ -42,7 +42,7 @@
     },
     "designer": {
       "description": "Traduz o brief do Impeccable para tokens de design (catalog.pen). Focado em UI/UX, não codifica.",
-      "model": "google/antigravity-gemini-3-flash",
+      "model": "opencode/deepseek-v4-flash-free",
       "mode": "subagent",
       "hidden": true,
       "permissions": {
