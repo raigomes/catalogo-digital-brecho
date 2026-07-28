@@ -39,7 +39,7 @@ export default async function ProdutoPage({ params }: Props) {
             {produto.categoria}
           </span>
         </div>
-        <div className="hidden lg:flex items-center justify-center gap-3">
+        <div className="hidden lg:flex items-center gap-3">
           <Image src="/sacola.png" alt="" width={28} height={28} className="invert" />
           <h1 className="font-mono text-xl text-[#f4f1ea] uppercase tracking-[0.15em]">
             BREChÓ DA MARIA

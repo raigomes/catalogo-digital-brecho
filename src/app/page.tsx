@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { useState, useMemo, useCallback, useEffect } from "react"
-import Image from "next/image"
-import { produtos, categorias } from "@/lib/data"
-import type { SizeFilter, PriceFilter } from "@/lib/types"
-import { enquadrarPreco } from "@/lib/utils"
-import { useDebounce } from "@/lib/hooks"
-import { TagCategoria } from "@/components/tag-categoria"
-import { FiltrosMobile } from "@/components/filtros-mobile"
-import { SidebarFiltros } from "@/components/sidebar-filtros"
-import { SecaoNovidades } from "@/components/secao-novidades"
+import { useState, useMemo, useCallback, useEffect } from "react";
+import Image from "next/image";
+import { produtos, categorias } from "@/lib/data";
+import type { SizeFilter, PriceFilter } from "@/lib/types";
+import { enquadrarPreco } from "@/lib/utils";
+import { useDebounce } from "@/lib/hooks";
+import { TagCategoria } from "@/components/tag-categoria";
+import { FiltrosMobile } from "@/components/filtros-mobile";
+import { SidebarFiltros } from "@/components/sidebar-filtros";
+import { SecaoNovidades } from "@/components/secao-novidades";
 
 // ============================================
 // HOME PAGE — Catálogo Digital Brechó da Maria
@@ -20,40 +20,40 @@ export default function HomePage() {
   // ==========================================
   // ESTADO: controle de filtros e UI
   // ==========================================
-  const [busca, setBusca] = useState("")
-  const [catAtiva, setCatAtiva] = useState("TODOS")
-  const [tamAtivo, setTamAtivo] = useState<SizeFilter>("TODOS")
-  const [precoAtivo, setPrecoAtivo] = useState<PriceFilter>("TODOS")
-  const [erro, setErro] = useState(false)
-  const [loading, setLoading] = useState(true)
+  const [busca, setBusca] = useState("");
+  const [catAtiva, setCatAtiva] = useState("TODOS");
+  const [tamAtivo, setTamAtivo] = useState<SizeFilter>("TODOS");
+  const [precoAtivo, setPrecoAtivo] = useState<PriceFilter>("TODOS");
+  const [erro, setErro] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [isOffline, setIsOffline] = useState(
-    typeof window !== "undefined" ? !navigator.onLine : false
-  )
+    typeof window !== "undefined" ? !navigator.onLine : false,
+  );
 
   // Debounce de 300ms na busca — evita filtragem a cada tecla
   // A busca visual continua instantânea no input, mas o filtro
   // só executa após 300ms de inatividade do usuário
-  const buscaDebounced = useDebounce(busca, 300)
+  const buscaDebounced = useDebounce(busca, 300);
 
   // Simula carregamento inicial (dev).
   // Em produção, loading será controlado pelo fetch da API (Google Sheets)
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 400)
-    return () => clearTimeout(timer)
-  }, [])
+    const timer = setTimeout(() => setLoading(false), 400);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Detecção de conectividade — monitora navigator.onLine
   // Exibe banner "modo zine" quando o usuário estiver offline
   useEffect(() => {
-    const online = () => setIsOffline(false)
-    const offline = () => setIsOffline(true)
-    window.addEventListener("online", online)
-    window.addEventListener("offline", offline)
+    const online = () => setIsOffline(false);
+    const offline = () => setIsOffline(true);
+    window.addEventListener("online", online);
+    window.addEventListener("offline", offline);
     return () => {
-      window.removeEventListener("online", online)
-      window.removeEventListener("offline", offline)
-    }
-  }, [])
+      window.removeEventListener("online", online);
+      window.removeEventListener("offline", offline);
+    };
+  }, []);
 
   // ==========================================
   // FILTRAGEM: ordenação e busca client-side
@@ -71,10 +71,10 @@ export default function HomePage() {
     () =>
       [...produtos].sort(
         (a, b) =>
-          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
       ),
-    []
-  )
+    [],
+  );
 
   // Filtragem cross-criteria com fallback de erro
   const filtrados = useMemo(() => {
@@ -82,34 +82,34 @@ export default function HomePage() {
       return ordenados.filter((p) => {
         // 1. Filtro textual (nome + descrição)
         if (buscaDebounced) {
-          const q = buscaDebounced.toLowerCase()
+          const q = buscaDebounced.toLowerCase();
           if (
             !p.nome.toLowerCase().includes(q) &&
             !p.descricao.toLowerCase().includes(q)
           )
-            return false
+            return false;
         }
         // 2. Filtro por categoria
-        if (catAtiva !== "TODOS" && p.categoria !== catAtiva) return false
+        if (catAtiva !== "TODOS" && p.categoria !== catAtiva) return false;
         // 3. Filtro por tamanho
         if (tamAtivo !== "TODOS" && !p.tamanhos.includes(tamAtivo))
-          return false
+          return false;
         // 4. Filtro por faixa de preço (valores em centavos)
-        if (!enquadrarPreco(p.preco, precoAtivo)) return false
+        if (!enquadrarPreco(p.preco, precoAtivo)) return false;
         // 5. Apenas itens disponíveis
-        if (!p.disponivel) return false
-        return true
-      })
+        if (!p.disponivel) return false;
+        return true;
+      });
     } catch {
-      setErro(true)
-      return []
+      setErro(true);
+      return [];
     }
-  }, [buscaDebounced, catAtiva, tamAtivo, precoAtivo, ordenados])
+  }, [buscaDebounced, catAtiva, tamAtivo, precoAtivo, ordenados]);
 
   // Reset do estado de erro (botão "TENTAR DE NOVO")
   const handleRetry = useCallback(() => {
-    setErro(false)
-  }, [])
+    setErro(false);
+  }, []);
 
   // ==========================================
   // RENDER: layout condicional por estado
@@ -129,7 +129,7 @@ export default function HomePage() {
           TENTAR DE NOVO
         </button>
       </div>
-    )
+    );
   }
 
   // Estado NORMAL — layout completo da Home
@@ -144,8 +144,8 @@ export default function HomePage() {
 
       {/* ===== HEADER ===== */}
       <header className="bg-[#1a1a1a] px-4 py-4">
-        <div className="flex items-center justify-center gap-3">
-          <Image src="/sacola.png" alt="" width={24} height={24} className="invert" />
+        <div className="flex items-center gap-3">
+          <Image src="/sacola.png" alt="" width={24} height={24} />
           <h1 className="font-mono text-xl text-[#f4f1ea] uppercase tracking-[0.15em]">
             BREChÓ DA MARIA
           </h1>
@@ -202,5 +202,5 @@ export default function HomePage() {
         </div>
       </section>
     </div>
-  )
+  );
 }
