@@ -1,0 +1,1470 @@
+{
+  "version": "2.14",
+  "children": [
+    {
+      "type": "frame",
+      "id": "ZIaU6",
+      "x": 880,
+      "y": 0,
+      "name": "Card",
+      "reusable": true,
+      "rotation": -1,
+      "width": 180,
+      "fill": "#ffffff",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 1,
+      "effect": {
+        "type": "shadow",
+        "shadowType": "outer",
+        "color": "#00000026",
+        "offset": {
+          "x": 2,
+          "y": 2
+        }
+      },
+      "layout": "vertical",
+      "gap": 6,
+      "padding": 8,
+      "children": [
+        {
+          "type": "rectangle",
+          "id": "Q0sxW",
+          "name": "Foto",
+          "fill": "#e0ddd5",
+          "width": "fill_container",
+          "height": 140,
+          "stroke": "#1a1a1a",
+          "strokeWidth": 1
+        },
+        {
+          "type": "frame",
+          "id": "CDXif",
+          "name": "TagBg",
+          "fill": "#f5d742",
+          "padding": [
+            2,
+            6
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "MVGwp",
+              "name": "TagTexto",
+              "fill": "#1a1a1a",
+              "content": "NOVIDADE",
+              "fontFamily": "Courier Prime",
+              "fontSize": 10,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "b2QwB",
+          "name": "NomeProduto",
+          "fill": "#1a1a1a",
+          "content": "Vestido Flor",
+          "fontFamily": "Courier Prime",
+          "fontSize": 12,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "FLKPe",
+          "name": "Preco",
+          "fill": "#ff3b7f",
+          "content": "R$ 89,90",
+          "fontFamily": "Courier Prime",
+          "fontSize": 14,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "Vemtv",
+      "x": 1059.9725851281505,
+      "y": 0,
+      "name": "Tag Categoria",
+      "reusable": true,
+      "fill": "#f5d742",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 1,
+      "padding": [
+        4,
+        10
+      ],
+      "children": [
+        {
+          "type": "text",
+          "id": "X5iptv",
+          "name": "TextoCat",
+          "fill": "#1a1a1a",
+          "content": "CATEGORIA",
+          "fontFamily": "Courier Prime",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "Y8xMg",
+      "x": 1139.9725851281505,
+      "y": 0,
+      "name": "Botao CTA",
+      "reusable": true,
+      "fill": "#ff3b7f",
+      "stroke": "#1a1a1a",
+      "strokeWidth": 1,
+      "padding": [
+        12,
+        20
+      ],
+      "children": [
+        {
+          "type": "text",
+          "id": "CewJf",
+          "name": "BtnTexto",
+          "fill": "#ffffff",
+          "content": "QUERO ESSE!",
+          "fontFamily": "Courier Prime",
+          "fontSize": 14,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "y5XGc",
+      "x": 1312.9725851281505,
+      "y": 0,
+      "name": "Home",
+      "clip": true,
+      "width": 375,
+      "height": 1200,
+      "fill": "#f4f1ea",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "l9Lzu7",
+          "name": "Header",
+          "width": "fill_container",
+          "fill": "#1a1a1a",
+          "padding": 16,
+          "children": [
+            {
+              "type": "text",
+              "id": "uzV78",
+              "name": "Logo",
+              "fill": "#f4f1ea",
+              "content": "BREChO DA MARIA",
+              "fontFamily": "Courier Prime",
+              "fontSize": 20,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "C4snC",
+          "name": "Busca",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 8,
+          "padding": [
+            12,
+            16
+          ],
+          "children": [
+            {
+              "type": "rectangle",
+              "id": "mGMZ5",
+              "name": "InputBusca",
+              "fill": "#ffffff",
+              "width": "fill_container",
+              "height": 36,
+              "stroke": "#1a1a1a",
+              "strokeWidth": 1
+            },
+            {
+              "type": "frame",
+              "id": "D20BLn",
+              "name": "FiltrosCat",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 6,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "o3Pb1",
+                  "name": "CatRow1",
+                  "width": "fill_container",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "id": "EJj7S",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "Tag TODOS",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "TODOS"
+                        }
+                      }
+                    },
+                    {
+                      "id": "VIX8w",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "Tag VESTIDOS",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "VESTIDOS"
+                        }
+                      }
+                    },
+                    {
+                      "id": "kldSU",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "Tag BLUSAS",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "BLUSAS"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Eg5DF",
+                  "name": "CatRow2",
+                  "width": "fill_container",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "id": "E058fO",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "Tag SAIAS",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "SAIAS"
+                        }
+                      }
+                    },
+                    {
+                      "id": "TWubA",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "Tag CALÇAS",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "CALÇAS"
+                        }
+                      }
+                    },
+                    {
+                      "id": "QS1tO",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "Tag JAQUETAS",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "JAQUETAS"
+                        }
+                      }
+                    },
+                    {
+                      "id": "CTdgK",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "Tag ACESSÓRIOS",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "ACESSÓRIOS"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "i0jfuO",
+              "name": "LabelTamanho",
+              "fill": "$fg",
+              "content": "TAMANHO",
+              "fontFamily": "Courier Prime",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "kEiJw",
+              "name": "FiltroTamanho",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 6,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "A30WQ",
+                  "name": "TamRow1",
+                  "width": "fill_container",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "id": "HIOze",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "Tag TODOS",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "TODOS"
+                        }
+                      }
+                    },
+                    {
+                      "id": "pjy1R",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "Tag P",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "P"
+                        }
+                      }
+                    },
+                    {
+                      "id": "EYC5J",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "Tag M",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "M"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "huA9z",
+                  "name": "TamRow2",
+                  "width": "fill_container",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "id": "ulpn9",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "Tag G",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "G"
+                        }
+                      }
+                    },
+                    {
+                      "id": "StaIU",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "Tag GG",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "GG"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "FOizV",
+              "name": "LabelPreco",
+              "fill": "$fg",
+              "content": "PREÇO",
+              "fontFamily": "Courier Prime",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "S5BPe",
+              "name": "FiltroPreco",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 6,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "G0qPGH",
+                  "name": "PreRow1",
+                  "width": "fill_container",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "id": "gWsnF",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "Tag TODOS",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "TODOS"
+                        }
+                      }
+                    },
+                    {
+                      "id": "y7VUIs",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "Tag ATÉ R$50",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "ATÉ R$50"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "G8IVv",
+                  "name": "PreRow2",
+                  "width": "fill_container",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "id": "okLZr",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "Tag R$50-R$100",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "R$50-R$100"
+                        }
+                      }
+                    },
+                    {
+                      "id": "Wbnbz",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "Tag R$100-R$200",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "R$100-R$200"
+                        }
+                      }
+                    },
+                    {
+                      "id": "qxiUM",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "Tag R$200+",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "R$200+"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "g42ZO0",
+          "name": "Novidades",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            0,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "i6hm7O",
+              "name": "TituloNov",
+              "fill": "#1a1a1a",
+              "content": "NOVIDADES",
+              "fontFamily": "Courier Prime",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "g5SCh",
+              "name": "Row1",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "id": "BhQci",
+                  "type": "ref",
+                  "ref": "ZIaU6",
+                  "width": "fill_container",
+                  "descendants": {
+                    "Q0sxW": {
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1718698028571-8a74ec4c280c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODUyMTQxNDN8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "fill"
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "Z2e5l",
+                  "type": "ref",
+                  "ref": "ZIaU6",
+                  "width": "fill_container",
+                  "descendants": {
+                    "Q0sxW": {
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1657879005514-d36c179e51fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODUyMTQxNDR8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "fill"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "SJifX",
+              "name": "Row2",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "id": "i5Qp7w",
+                  "type": "ref",
+                  "ref": "ZIaU6",
+                  "width": "fill_container",
+                  "descendants": {
+                    "Q0sxW": {
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1572122936109-ce84b9cd5439?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODUyMTQxNDR8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "fill"
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "F379V",
+                  "type": "ref",
+                  "ref": "ZIaU6",
+                  "width": "fill_container",
+                  "descendants": {
+                    "Q0sxW": {
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1762342674120-2bdfb356cdc0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODUyMTQxNDV8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "fill"
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "g13ofa",
+              "name": "Row3",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "id": "eAaHa",
+                  "type": "ref",
+                  "ref": "ZIaU6",
+                  "width": "fill_container",
+                  "descendants": {
+                    "Q0sxW": {
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1553247407-23251ce81f59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODUyMTQxNDZ8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "fill"
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "kAoTE",
+                  "type": "ref",
+                  "ref": "ZIaU6",
+                  "width": "fill_container",
+                  "descendants": {
+                    "Q0sxW": {
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1624051020000-0c096892656a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODUyMTQxNDd8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "fill"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "xsPMY",
+          "name": "Categorias",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            0,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "c6suq",
+              "name": "TituloCat",
+              "fill": "#1a1a1a",
+              "content": "CATEGORIAS",
+              "fontFamily": "Courier Prime",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "BNv3w",
+              "name": "CatRow1",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "id": "QMRBz",
+                  "type": "ref",
+                  "ref": "Vemtv",
+                  "descendants": {
+                    "X5iptv": {
+                      "content": "VESTIDOS"
+                    }
+                  }
+                },
+                {
+                  "id": "qpYLJ",
+                  "type": "ref",
+                  "ref": "Vemtv",
+                  "descendants": {
+                    "X5iptv": {
+                      "content": "BLUSAS"
+                    }
+                  }
+                },
+                {
+                  "id": "JrKP3",
+                  "type": "ref",
+                  "ref": "Vemtv",
+                  "descendants": {
+                    "X5iptv": {
+                      "content": "SAIAS"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "XRIFU",
+              "name": "CatRow2",
+              "width": "fill_container",
+              "gap": 8,
+              "children": [
+                {
+                  "id": "r8VDNQ",
+                  "type": "ref",
+                  "ref": "Vemtv",
+                  "descendants": {
+                    "X5iptv": {
+                      "content": "CALCAS"
+                    }
+                  }
+                },
+                {
+                  "id": "eTLOF",
+                  "type": "ref",
+                  "ref": "Vemtv",
+                  "descendants": {
+                    "X5iptv": {
+                      "content": "JAQUETAS"
+                    }
+                  }
+                },
+                {
+                  "id": "IfLxZ",
+                  "type": "ref",
+                  "ref": "Vemtv",
+                  "descendants": {
+                    "X5iptv": {
+                      "content": "ACESSORIOS"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "iK8mc",
+      "x": 1767.9725851281505,
+      "y": 0,
+      "name": "Produto Detalhe",
+      "clip": true,
+      "width": 375,
+      "height": 812,
+      "fill": "$bg",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "ODcd8",
+          "name": "DetHeader",
+          "width": "fill_container",
+          "fill": "$fg",
+          "padding": [
+            12,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "eFKW9",
+              "name": "Voltar",
+              "fill": "$bg",
+              "content": "← Voltar",
+              "fontFamily": "Courier Prime",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "rectangle",
+          "id": "g6eY1",
+          "name": "FotoGrande",
+          "metadata": {
+            "type": "unsplash",
+            "username": "carrie_borden",
+            "link": "https://unsplash.com/@carrie_borden",
+            "author": "Carrie Borden"
+          },
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "https://images.unsplash.com/photo-1651769849326-5fd74e3f1f81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODUyMTQxMzh8&ixlib=rb-4.1.0&q=80&w=1080",
+            "mode": "fill"
+          },
+          "width": "fill_container",
+          "height": 280,
+          "stroke": "$fg",
+          "strokeWidth": 1
+        },
+        {
+          "type": "frame",
+          "id": "TRO4O",
+          "name": "InfoProduto",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 8,
+          "padding": [
+            12,
+            16
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "o2RvKX",
+              "name": "NomeProduto",
+              "fill": "$fg",
+              "content": "Vestido Flor",
+              "fontFamily": "Courier Prime",
+              "fontSize": 16,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "kW76l",
+              "name": "Preco",
+              "fill": "$primary",
+              "content": "R$ 89,90",
+              "fontFamily": "Courier Prime",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "vKntI",
+              "name": "LabelTamanhos",
+              "fill": "$fg",
+              "content": "TAMANHOS",
+              "fontFamily": "Courier Prime",
+              "fontSize": 11,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "S0MqI",
+              "name": "TamanhosRow",
+              "width": "fill_container",
+              "gap": 6,
+              "children": [
+                {
+                  "id": "dJhLh",
+                  "type": "ref",
+                  "ref": "Vemtv",
+                  "descendants": {
+                    "X5iptv": {
+                      "content": "P"
+                    }
+                  }
+                },
+                {
+                  "id": "w9fEG",
+                  "type": "ref",
+                  "ref": "Vemtv",
+                  "descendants": {
+                    "X5iptv": {
+                      "content": "M"
+                    }
+                  }
+                },
+                {
+                  "id": "TVJOe",
+                  "type": "ref",
+                  "ref": "Vemtv",
+                  "descendants": {
+                    "X5iptv": {
+                      "content": "G"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "l0tvck",
+              "name": "Descricao",
+              "fill": "$fg",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Vestido florido em viscose. Leve, fresco, ideal para dias quentes. Botões frontais, cintura marcada.",
+              "fontFamily": "Courier Prime",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "id": "e7sOr",
+              "type": "ref",
+              "ref": "Y8xMg",
+              "name": "CTAWhatsApp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "naI9g",
+      "x": 2222.9725851281505,
+      "y": 0,
+      "name": "Home Desktop",
+      "clip": true,
+      "width": 1024,
+      "height": 812,
+      "fill": "$bg",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "z9bLS",
+          "name": "Header",
+          "width": "fill_container",
+          "fill": "$fg",
+          "padding": 16,
+          "children": [
+            {
+              "type": "text",
+              "id": "DrRNI",
+              "name": "Logo",
+              "fill": "$bg",
+              "content": "BREChO DA MARIA",
+              "fontFamily": "Courier Prime",
+              "fontSize": 20,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "t7yYdS",
+          "name": "MainContent",
+          "width": "fill_container",
+          "height": "fill_container",
+          "gap": 24,
+          "padding": [
+            0,
+            24
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "TffGd",
+              "name": "Sidebar",
+              "width": 200,
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "padding": [
+                16,
+                0
+              ],
+              "children": [
+                {
+                  "type": "rectangle",
+                  "id": "fT5eP",
+                  "name": "InputBusca",
+                  "fill": "#ffffff",
+                  "width": "fill_container",
+                  "height": 36,
+                  "stroke": "$fg",
+                  "strokeWidth": 1
+                },
+                {
+                  "type": "text",
+                  "id": "FCVVO",
+                  "name": "LabelCat",
+                  "fill": "$fg",
+                  "content": "CATEGORIA",
+                  "fontFamily": "Courier Prime",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "vSdom",
+                  "name": "CatFiltros",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "id": "vgoIy",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "TagCat TODOS",
+                      "width": "fill_container",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "TODOS"
+                        }
+                      }
+                    },
+                    {
+                      "id": "yTPYX",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "TagCat VESTIDOS",
+                      "width": "fill_container",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "VESTIDOS"
+                        }
+                      }
+                    },
+                    {
+                      "id": "l1g294",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "TagCat BLUSAS",
+                      "width": "fill_container",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "BLUSAS"
+                        }
+                      }
+                    },
+                    {
+                      "id": "IBfBG",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "TagCat SAIAS",
+                      "width": "fill_container",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "SAIAS"
+                        }
+                      }
+                    },
+                    {
+                      "id": "PweZE",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "TagCat CALÇAS",
+                      "width": "fill_container",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "CALÇAS"
+                        }
+                      }
+                    },
+                    {
+                      "id": "uAFwz",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "TagCat JAQUETAS",
+                      "width": "fill_container",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "JAQUETAS"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "J33BUO",
+                  "name": "LabelTam",
+                  "fill": "$fg",
+                  "content": "TAMANHO",
+                  "fontFamily": "Courier Prime",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "tnhFw",
+                  "name": "TamFiltros",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "id": "dAEiO",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "TagTam TODOS",
+                      "width": "fill_container",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "TODOS"
+                        }
+                      }
+                    },
+                    {
+                      "id": "rhSY9",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "TagTam P",
+                      "width": "fill_container",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "P"
+                        }
+                      }
+                    },
+                    {
+                      "id": "JrMBs",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "TagTam M",
+                      "width": "fill_container",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "M"
+                        }
+                      }
+                    },
+                    {
+                      "id": "Zsr8m",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "TagTam G",
+                      "width": "fill_container",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "G"
+                        }
+                      }
+                    },
+                    {
+                      "id": "ddlnh",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "TagTam GG",
+                      "width": "fill_container",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "GG"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "hl8Dh",
+                  "name": "LabelPre",
+                  "fill": "$fg",
+                  "content": "PREÇO",
+                  "fontFamily": "Courier Prime",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "a46GVt",
+                  "name": "PreFiltros",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "id": "doPYx",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "TagPre TODOS",
+                      "width": "fill_container",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "TODOS"
+                        }
+                      }
+                    },
+                    {
+                      "id": "KJJEA",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "TagPre ATÉ R$50",
+                      "width": "fill_container",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "ATÉ R$50"
+                        }
+                      }
+                    },
+                    {
+                      "id": "iQwt3",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "TagPre R$50-R$100",
+                      "width": "fill_container",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "R$50-R$100"
+                        }
+                      }
+                    },
+                    {
+                      "id": "II1Hr",
+                      "type": "ref",
+                      "ref": "Vemtv",
+                      "name": "TagPre R$100-R$200",
+                      "width": "fill_container",
+                      "descendants": {
+                        "X5iptv": {
+                          "content": "R$100-R$200"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "L7KKR7",
+              "name": "GridArea",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ymjh8",
+                  "name": "TituloNov",
+                  "fill": "$fg",
+                  "content": "NOVIDADES",
+                  "fontFamily": "Courier Prime",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "LgGf7",
+                  "name": "Row1",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "id": "D9mimP",
+                      "type": "ref",
+                      "ref": "ZIaU6",
+                      "name": "Card 1",
+                      "width": "fill_container",
+                      "rotation": 0,
+                      "descendants": {
+                        "Q0sxW": {
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "https://images.unsplash.com/photo-1631377307479-99d966c84eff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODUyMTQxNTJ8&ixlib=rb-4.1.0&q=80&w=1080",
+                            "mode": "fill"
+                          }
+                        },
+                        "b2QwB": {
+                          "content": "Vestido Flor"
+                        },
+                        "FLKPe": {
+                          "content": "R$ 89,90"
+                        }
+                      }
+                    },
+                    {
+                      "id": "U6e8Z",
+                      "type": "ref",
+                      "ref": "ZIaU6",
+                      "name": "Card 2",
+                      "width": "fill_container",
+                      "rotation": 0,
+                      "descendants": {
+                        "Q0sxW": {
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "https://images.unsplash.com/photo-1675972846375-de63b5de9cff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODUyMTQxNTJ8&ixlib=rb-4.1.0&q=80&w=1080",
+                            "mode": "fill"
+                          }
+                        },
+                        "b2QwB": {
+                          "content": "Vestido Flor"
+                        },
+                        "FLKPe": {
+                          "content": "R$ 89,90"
+                        }
+                      }
+                    },
+                    {
+                      "id": "bjGzF",
+                      "type": "ref",
+                      "ref": "ZIaU6",
+                      "name": "Card 3",
+                      "width": "fill_container",
+                      "rotation": 0,
+                      "descendants": {
+                        "Q0sxW": {
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "https://images.unsplash.com/photo-1769374071668-eaab017a3b58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODUyMTQxNTN8&ixlib=rb-4.1.0&q=80&w=1080",
+                            "mode": "fill"
+                          }
+                        },
+                        "b2QwB": {
+                          "content": "Vestido Flor"
+                        },
+                        "FLKPe": {
+                          "content": "R$ 89,90"
+                        }
+                      }
+                    },
+                    {
+                      "id": "GmVbT",
+                      "type": "ref",
+                      "ref": "ZIaU6",
+                      "name": "Card 4",
+                      "width": "fill_container",
+                      "rotation": 0,
+                      "descendants": {
+                        "Q0sxW": {
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "https://images.unsplash.com/photo-1700993443898-da2e2b55bb2b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODUyMTQxNTR8&ixlib=rb-4.1.0&q=80&w=1080",
+                            "mode": "fill"
+                          }
+                        },
+                        "b2QwB": {
+                          "content": "Vestido Flor"
+                        },
+                        "FLKPe": {
+                          "content": "R$ 89,90"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "lgHbm",
+                  "name": "Row2",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "id": "sOTQ2",
+                      "type": "ref",
+                      "ref": "ZIaU6",
+                      "name": "Card 5",
+                      "width": "fill_container",
+                      "rotation": 0,
+                      "descendants": {
+                        "Q0sxW": {
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "https://images.unsplash.com/photo-1582374768294-6e4bfe181302?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODUyMTQxNTV8&ixlib=rb-4.1.0&q=80&w=1080",
+                            "mode": "fill"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "id": "h3lJS",
+                      "type": "ref",
+                      "ref": "ZIaU6",
+                      "name": "Card 6",
+                      "width": "fill_container",
+                      "rotation": 0,
+                      "descendants": {
+                        "Q0sxW": {
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "https://images.unsplash.com/photo-1721190164320-57c44eac1d0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODUyMTQxNTZ8&ixlib=rb-4.1.0&q=80&w=1080",
+                            "mode": "fill"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "id": "XUYwQ",
+                      "type": "ref",
+                      "ref": "ZIaU6",
+                      "name": "Card 7",
+                      "width": "fill_container",
+                      "rotation": 0,
+                      "descendants": {
+                        "Q0sxW": {
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "https://images.unsplash.com/photo-1766556514213-f85d80bf856b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODUyMTQxNTZ8&ixlib=rb-4.1.0&q=80&w=1080",
+                            "mode": "fill"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "id": "wnvYj",
+                      "type": "ref",
+                      "ref": "ZIaU6",
+                      "name": "Card 8",
+                      "width": "fill_container",
+                      "rotation": 0,
+                      "descendants": {
+                        "Q0sxW": {
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "https://images.unsplash.com/photo-1609172795052-05bf80681031?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODUyMTQxNTd8&ixlib=rb-4.1.0&q=80&w=1080",
+                            "mode": "fill"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "bg": {
+      "type": "color",
+      "value": "#f4f1ea"
+    },
+    "fg": {
+      "type": "color",
+      "value": "#1a1a1a"
+    },
+    "primary": {
+      "type": "color",
+      "value": "#ff3b7f"
+    },
+    "accent": {
+      "type": "color",
+      "value": "#f5d742"
+    },
+    "font-heading": {
+      "type": "string",
+      "value": "Courier Prime"
+    },
+    "font-body": {
+      "type": "string",
+      "value": "Courier Prime"
+    },
+    "spacing-xs": {
+      "type": "number",
+      "value": 4
+    },
+    "spacing-sm": {
+      "type": "number",
+      "value": 8
+    },
+    "spacing-md": {
+      "type": "number",
+      "value": 16
+    },
+    "spacing-lg": {
+      "type": "number",
+      "value": 24
+    },
+    "spacing-xl": {
+      "type": "number",
+      "value": 32
+    },
+    "transition-page": {
+      "type": "string",
+      "value": "view-transition"
+    },
+    "hover-lift": {
+      "type": "number",
+      "value": 4
+    }
+  },
+  "fileToken": "54866cf5-ec16-46b1-abc5-96bde826db80"
+}
