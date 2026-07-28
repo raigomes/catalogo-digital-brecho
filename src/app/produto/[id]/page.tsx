@@ -1,6 +1,5 @@
-import Image from "next/image"
-import Link from "next/link"
 import { notFound } from "next/navigation"
+import { Header } from "@/components/header"
 import { fetchProdutoPorId } from "@/lib/api"
 import { FotoProduto } from "@/components/foto-produto"
 import { InfoProduto } from "@/components/info-produto"
@@ -26,26 +25,7 @@ export default async function ProdutoPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-[#f4f1ea] flex flex-col">
-      {/* Header: mobile ← Voltar + categoria, desktop logo */}
-      <header className="bg-[#1a1a1a] px-4 py-4">
-        <div className="lg:hidden flex items-center gap-4">
-          <Link
-            href="/"
-            className="text-[#f4f1ea] text-xs uppercase tracking-widest hover:text-[#ff3b7f] transition-colors"
-          >
-            ← Voltar
-          </Link>
-          <span className="text-[#f4f1ea]/60 text-xs uppercase tracking-wider">
-            {produto.categoria}
-          </span>
-        </div>
-        <div className="hidden lg:flex items-center gap-3">
-          <Image src="/sacola.png" alt="" width={28} height={28} className="invert" />
-          <h1 className="font-mono text-xl text-[#f4f1ea] uppercase tracking-[0.15em]">
-            BREChÓ DA MARIA
-          </h1>
-        </div>
-      </header>
+      <Header variant="produto" titulo={produto.categoria} />
 
       {/* Layout único — CSS responsivo cuida do reflow */}
       <div className="flex-1 lg:flex lg:flex-row lg:gap-6 lg:px-6">

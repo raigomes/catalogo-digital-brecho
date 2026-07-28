@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useMemo, useCallback, useEffect } from "react";
-import Image from "next/image";
+import { useState, useMemo, useCallback, useEffect, Suspense } from "react";
 import { produtos, categorias } from "@/lib/data";
 import type { SizeFilter, PriceFilter } from "@/lib/types";
 import { enquadrarPreco } from "@/lib/utils";
 import { useDebounce } from "@/lib/hooks";
+import { useSearchParams, useRouter } from "next/navigation";
+import { Header } from "@/components/header";
 import { TagCategoria } from "@/components/tag-categoria";
 import { FiltrosMobile } from "@/components/filtros-mobile";
 import { SidebarFiltros } from "@/components/sidebar-filtros";
@@ -16,18 +17,30 @@ import { SecaoNovidades } from "@/components/secao-novidades";
 // Direção visual: Zine Independente
 // Stack: Next.js 16 + Tailwind CSS 4
 // ============================================
-export default function HomePage() {
+function HomePageInner() {
   // ==========================================
   // ESTADO: controle de filtros e UI
   // ==========================================
   const [busca, setBusca] = useState("");
-  const [catAtiva, setCatAtiva] = useState("TODOS");
   const [tamAtivo, setTamAtivo] = useState<SizeFilter>("TODOS");
   const [precoAtivo, setPrecoAtivo] = useState<PriceFilter>("TODOS");
   const [erro, setErro] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isOffline, setIsOffline] = useState(
     typeof window !== "undefined" ? !navigator.onLine : false,
+  );
+
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const catAtiva = searchParams.get("categoria") || "TODOS";
+  const setCatAtiva = useCallback(
+    (cat: string) => {
+      router.replace(
+        cat === "TODOS" ? "/" : `/?categoria=${encodeURIComponent(cat)}`,
+        { scroll: false },
+      );
+    },
+    [router],
   );
 
   // Debounce de 300ms na busca — evita filtragem a cada tecla
@@ -143,14 +156,7 @@ export default function HomePage() {
       )}
 
       {/* ===== HEADER ===== */}
-      <header className="bg-[#1a1a1a] px-4 py-4">
-        <div className="flex items-center gap-3">
-          <Image src="/sacola.png" alt="" width={24} height={24} />
-          <h1 className="font-mono text-xl text-[#f4f1ea] uppercase tracking-[0.15em]">
-            BREChÓ DA MARIA
-          </h1>
-        </div>
-      </header>
+      <Header variant="home" />
 
       {/* ===== FILTROS MOBILE (< 1024px) ===== */}
       <FiltrosMobile
@@ -185,22 +191,16 @@ export default function HomePage() {
           <SecaoNovidades loading={loading} filtrados={filtrados} />
         </div>
       </div>
-
-      {/* ===== CATEGORIAS (apenas mobile) ===== */}
-      <section className="px-4 pb-8 lg:hidden">
-        <h2 className="font-mono text-base text-[#1a1a1a] font-bold mb-3">
-          CATEGORIAS
-        </h2>
-        <div className="grid grid-cols-3 gap-2">
-          {categorias.map((cat) => (
-            <TagCategoria
-              key={cat.slug}
-              label={cat.nome}
-              href={`/categoria/${cat.slug}`}
-            />
-          ))}
-        </div>
-      </section>
     </div>
+  );
+}
+
+// Wrapper com Suspense — necessário por causa do useSearchParams
+// Next.js 16 exige Suspense boundary para hooks de navegação
+export default function HomePage() {
+  return (
+    <Suspense fallback={null}>
+      <HomePageInner />
+    </Suspense>
   );
 }

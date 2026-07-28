@@ -1,11 +1,9 @@
+import { Header } from "@/components/header"
+
 export default function ProdutoLoading() {
   return (
     <div className="min-h-screen bg-[#f4f1ea] flex flex-col">
-      {/* Header skeleton */}
-      <header className="bg-[#1a1a1a] px-4 py-4">
-        <div className="lg:hidden h-4 w-24 bg-[#f4f1ea]/20 animate-pulse" />
-        <div className="hidden lg:block h-6 w-56 bg-[#f4f1ea]/20 animate-pulse" />
-      </header>
+      <Header variant="produto" skeleton />
 
       {/* Skeleton único — CSS responsivo cuida do reflow */}
       <div className="flex-1 lg:flex lg:flex-row lg:gap-6 lg:px-6">

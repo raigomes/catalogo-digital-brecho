@@ -22,13 +22,6 @@ export async function fetchProdutoPorId(id: string): Promise<Produto | null> {
   return produto ?? null
 }
 
-export async function fetchProdutosPorCategoria(
-  nome: string
-): Promise<Produto[]> {
-  await delay(150)
-  return produtosMock.filter((p) => p.categoria === nome && p.disponivel)
-}
-
 export async function fetchCategorias(): Promise<Categoria[]> {
   await delay(50)
   return [...categoriasMock]
