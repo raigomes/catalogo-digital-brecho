@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { fetchCategorias, fetchProdutosPorCategoria } from "@/lib/api"
@@ -41,6 +42,7 @@ export default async function CategoriaPage({ params }: Props) {
         >
           ← Voltar
         </Link>
+        <Image src="/sacola.png" alt="" width={24} height={24} className="invert" />
         <h1 className="text-[#f4f1ea] text-lg uppercase tracking-[0.2em] font-bold">
           {cat.nome}
         </h1>

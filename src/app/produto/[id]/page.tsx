@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { fetchProdutoPorId } from "@/lib/api"
@@ -38,9 +39,12 @@ export default async function ProdutoPage({ params }: Props) {
             {produto.categoria}
           </span>
         </div>
-        <h1 className="hidden lg:block font-mono text-xl text-[#f4f1ea] uppercase tracking-[0.15em]">
-          BREChÓ DA MARIA
-        </h1>
+        <div className="hidden lg:flex items-center gap-3">
+          <Image src="/sacola.png" alt="" width={28} height={28} className="invert" />
+          <h1 className="font-mono text-xl text-[#f4f1ea] uppercase tracking-[0.15em]">
+            BREChÓ DA MARIA
+          </h1>
+        </div>
       </header>
 
       {/* Layout único — CSS responsivo cuida do reflow */}

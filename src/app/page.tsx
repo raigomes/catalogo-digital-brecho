@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useMemo, useCallback, useEffect } from "react"
+import Image from "next/image"
 import { produtos, categorias } from "@/lib/data"
 import type { SizeFilter, PriceFilter } from "@/lib/types"
 import { enquadrarPreco } from "@/lib/utils"
@@ -143,9 +144,12 @@ export default function HomePage() {
 
       {/* ===== HEADER ===== */}
       <header className="bg-[#1a1a1a] px-4 py-4">
-        <h1 className="font-mono text-xl text-[#f4f1ea] uppercase tracking-[0.15em]">
-          BREChÓ DA MARIA
-        </h1>
+        <div className="flex items-center gap-3">
+          <Image src="/sacola.png" alt="" width={24} height={24} className="invert" />
+          <h1 className="font-mono text-xl text-[#f4f1ea] uppercase tracking-[0.15em]">
+            BREChÓ DA MARIA
+          </h1>
+        </div>
       </header>
 
       {/* ===== FILTROS MOBILE (< 1024px) ===== */}
