@@ -41,6 +41,7 @@ export function CardPolaroid({ produto, showTag = true, priority, eager }: CardP
             className="object-cover"
             sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
             priority={priority}
+            fetchPriority={priority ? "high" : undefined}
             loading={eager && !priority ? "eager" : undefined}
           />
         </div>
