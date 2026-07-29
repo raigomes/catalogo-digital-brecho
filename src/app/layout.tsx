@@ -26,7 +26,6 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
   userScalable: true,
   themeColor: "#f4f1ea",
 }
@@ -36,13 +35,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const preconnect = (
+    <>
+      <link rel="preconnect" href="https://images.unsplash.com" />
+      <link rel="dns-prefetch" href="https://images.unsplash.com" />
+    </>
+  )
+
   return (
     <html
       lang="pt-BR"
       className={`${courierPrime.variable} h-full antialiased`}
     >
+      <head>{preconnect}</head>
       <body className="min-h-full flex flex-col">
-        <ViewTransitionsProvider>{children}</ViewTransitionsProvider>
+        <ViewTransitionsProvider>
+          <main id="main-content">{children}</main>
+        </ViewTransitionsProvider>
         <Footer />
         <ServiceWorkerRegister />
       </body>
