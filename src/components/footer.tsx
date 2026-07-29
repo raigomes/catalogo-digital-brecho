@@ -29,7 +29,7 @@ export function Footer() {
       <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
         {/* Logo */}
         <div className="flex items-center gap-3">
-          <Image src="/sacola.png" alt="" width={24} height={24} />
+          <Image src="/sacola.png" alt="" width={24} height={24} priority />
           <p className="font-mono text-base text-[#f4f1ea] uppercase tracking-[0.15em] lg:text-lg">
             BREChÓ DA MARIA
           </p>
