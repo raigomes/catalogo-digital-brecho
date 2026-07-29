@@ -48,7 +48,14 @@ export function Header({
         </div>
         {/* Desktop: logo + BREChÓ DA MARIA */}
         <div className="hidden lg:flex items-center gap-3">
-          <Image src="/sacola.png" alt="Sacola" width={24} height={24} />
+          <Image
+            src="/sacola.png"
+            alt="Sacola"
+            width={24}
+            height={24}
+            priority
+            fetchPriority="high"
+          />
           <p className="font-mono text-xl text-[#f4f1ea] uppercase tracking-[0.15em]">
             BREChÓ DA MARIA
           </p>
