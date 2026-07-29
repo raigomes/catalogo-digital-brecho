@@ -142,7 +142,7 @@
       "name": "Home",
       "clip": true,
       "width": 375,
-      "height": 1200,
+      "height": 1280,
       "fill": "#f4f1ea",
       "layout": "vertical",
       "children": [
@@ -152,8 +152,23 @@
           "name": "Header",
           "width": "fill_container",
           "fill": "#1a1a1a",
+          "gap": 8,
           "padding": 16,
+          "alignItems": "center",
           "children": [
+            {
+              "type": "rectangle",
+              "id": "iUZtH",
+              "name": "Logo Imagem",
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "images/sacola.png",
+                "mode": "fit"
+              },
+              "width": 24,
+              "height": 24
+            },
             {
               "type": "text",
               "id": "uzV78",
@@ -204,15 +219,29 @@
                   "gap": 6,
                   "children": [
                     {
-                      "id": "EJj7S",
-                      "type": "ref",
-                      "ref": "Vemtv",
-                      "name": "Tag TODOS",
-                      "descendants": {
-                        "X5iptv": {
-                          "content": "TODOS"
+                      "type": "frame",
+                      "id": "EtUfz",
+                      "name": "Tag TODOS Active",
+                      "width": "fit_content(53)",
+                      "height": "fit_content(20)",
+                      "fill": "$fg",
+                      "stroke": "$fg",
+                      "strokeWidth": 1,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "o2AEDW",
+                          "x": 10,
+                          "y": 4,
+                          "name": "TextoCat",
+                          "fill": "$bg",
+                          "content": "TODOS",
+                          "fontFamily": "Courier Prime",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
                         }
-                      }
+                      ]
                     },
                     {
                       "id": "VIX8w",
@@ -629,106 +658,11 @@
           ]
         },
         {
-          "type": "frame",
-          "id": "xsPMY",
-          "name": "Categorias",
-          "width": "fill_container",
-          "layout": "vertical",
-          "gap": 12,
-          "padding": [
-            0,
-            16
-          ],
-          "children": [
-            {
-              "type": "text",
-              "id": "c6suq",
-              "name": "TituloCat",
-              "fill": "#1a1a1a",
-              "content": "CATEGORIAS",
-              "fontFamily": "Courier Prime",
-              "fontSize": 16,
-              "fontWeight": "normal"
-            },
-            {
-              "type": "frame",
-              "id": "BNv3w",
-              "name": "CatRow1",
-              "width": "fill_container",
-              "gap": 8,
-              "children": [
-                {
-                  "id": "QMRBz",
-                  "type": "ref",
-                  "ref": "Vemtv",
-                  "descendants": {
-                    "X5iptv": {
-                      "content": "VESTIDOS"
-                    }
-                  }
-                },
-                {
-                  "id": "qpYLJ",
-                  "type": "ref",
-                  "ref": "Vemtv",
-                  "descendants": {
-                    "X5iptv": {
-                      "content": "BLUSAS"
-                    }
-                  }
-                },
-                {
-                  "id": "JrKP3",
-                  "type": "ref",
-                  "ref": "Vemtv",
-                  "descendants": {
-                    "X5iptv": {
-                      "content": "SAIAS"
-                    }
-                  }
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "XRIFU",
-              "name": "CatRow2",
-              "width": "fill_container",
-              "gap": 8,
-              "children": [
-                {
-                  "id": "r8VDNQ",
-                  "type": "ref",
-                  "ref": "Vemtv",
-                  "descendants": {
-                    "X5iptv": {
-                      "content": "CALCAS"
-                    }
-                  }
-                },
-                {
-                  "id": "eTLOF",
-                  "type": "ref",
-                  "ref": "Vemtv",
-                  "descendants": {
-                    "X5iptv": {
-                      "content": "JAQUETAS"
-                    }
-                  }
-                },
-                {
-                  "id": "IfLxZ",
-                  "type": "ref",
-                  "ref": "Vemtv",
-                  "descendants": {
-                    "X5iptv": {
-                      "content": "ACESSORIOS"
-                    }
-                  }
-                }
-              ]
-            }
-          ]
+          "id": "uoNkC",
+          "type": "ref",
+          "ref": "wEfXF",
+          "name": "FooterInstance",
+          "width": "fill_container"
         }
       ]
     },
@@ -740,7 +674,7 @@
       "name": "Produto Detalhe",
       "clip": true,
       "width": 375,
-      "height": 812,
+      "height": 1020,
       "fill": "$bg",
       "layout": "vertical",
       "children": [
@@ -750,17 +684,19 @@
           "name": "DetHeader",
           "width": "fill_container",
           "fill": "$fg",
+          "gap": 8,
           "padding": [
             12,
             16
           ],
+          "alignItems": "center",
           "children": [
             {
               "type": "text",
               "id": "eFKW9",
               "name": "Voltar",
               "fill": "$bg",
-              "content": "← Voltar",
+              "content": "← Voltar  |  VESTIDOS",
               "fontFamily": "Courier Prime",
               "fontSize": 14,
               "fontWeight": "normal"
@@ -888,6 +824,13 @@
               "name": "CTAWhatsApp"
             }
           ]
+        },
+        {
+          "id": "z84Pk",
+          "type": "ref",
+          "ref": "wEfXF",
+          "name": "FooterInstance",
+          "width": "fill_container"
         }
       ]
     },
@@ -899,7 +842,7 @@
       "name": "Home Desktop",
       "clip": true,
       "width": 1024,
-      "height": 812,
+      "height": 980,
       "fill": "$bg",
       "layout": "vertical",
       "children": [
@@ -909,8 +852,23 @@
           "name": "Header",
           "width": "fill_container",
           "fill": "$fg",
+          "gap": 10,
           "padding": 16,
+          "alignItems": "center",
           "children": [
+            {
+              "type": "rectangle",
+              "id": "UIEsn",
+              "name": "Logo Imagem",
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "images/sacola.png",
+                "mode": "fit"
+              },
+              "width": 28,
+              "height": 28
+            },
             {
               "type": "text",
               "id": "DrRNI",
@@ -977,16 +935,29 @@
                   "gap": 6,
                   "children": [
                     {
-                      "id": "vgoIy",
-                      "type": "ref",
-                      "ref": "Vemtv",
-                      "name": "TagCat TODOS",
-                      "width": "fill_container",
-                      "descendants": {
-                        "X5iptv": {
-                          "content": "TODOS"
+                      "type": "frame",
+                      "id": "wwz3m",
+                      "name": "TagCat TODOS Active",
+                      "width": "fit_content(53)",
+                      "height": "fit_content(20)",
+                      "fill": "$fg",
+                      "stroke": "$fg",
+                      "strokeWidth": 1,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "WJJcC",
+                          "x": 10,
+                          "y": 4,
+                          "name": "TextoCat",
+                          "fill": "$bg",
+                          "content": "TODOS",
+                          "fontFamily": "Courier Prime",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
                         }
-                      }
+                      ]
                     },
                     {
                       "id": "yTPYX",
@@ -1408,6 +1379,13 @@
               ]
             }
           ]
+        },
+        {
+          "id": "UHJFM",
+          "type": "ref",
+          "ref": "xUW5Y",
+          "name": "FooterInstanceDesktop",
+          "width": "fill_container"
         }
       ]
     },
@@ -1419,7 +1397,7 @@
       "name": "Produto Detalhe Desktop",
       "clip": true,
       "width": 1024,
-      "height": 812,
+      "height": 980,
       "fill": "$bg",
       "layout": "vertical",
       "children": [
@@ -1429,8 +1407,23 @@
           "name": "Header",
           "width": "fill_container",
           "fill": "$fg",
+          "gap": 10,
           "padding": 16,
+          "alignItems": "center",
           "children": [
+            {
+              "type": "rectangle",
+              "id": "zCkaN",
+              "name": "Logo Imagem",
+              "fill": {
+                "type": "image",
+                "enabled": true,
+                "url": "images/sacola.png",
+                "mode": "fit"
+              },
+              "width": 28,
+              "height": 28
+            },
             {
               "type": "text",
               "id": "dVJWg",
@@ -1460,7 +1453,7 @@
               "id": "JihXi",
               "name": "ColunaEsquerda",
               "width": "fill_container",
-              "height": "fill_container",
+              "height": 746,
               "layout": "vertical",
               "children": [
                 {
@@ -1474,7 +1467,7 @@
                     "mode": "fill"
                   },
                   "width": "fill_container",
-                  "height": 600,
+                  "height": 752,
                   "stroke": "$fg",
                   "strokeWidth": 1
                 }
@@ -1590,6 +1583,275 @@
                   "name": "CTAWhatsApp"
                 }
               ]
+            }
+          ]
+        },
+        {
+          "id": "fe7E5",
+          "type": "ref",
+          "ref": "xUW5Y",
+          "name": "FooterInstanceDesktop",
+          "width": "fill_container"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "f6W5F",
+      "x": 4430.972585128151,
+      "y": 0,
+      "name": "Tag Categoria Active",
+      "reusable": true,
+      "fill": "$fg",
+      "stroke": "$fg",
+      "strokeWidth": 1,
+      "padding": [
+        4,
+        10
+      ],
+      "children": [
+        {
+          "type": "text",
+          "id": "i84EHU",
+          "name": "TextoCat",
+          "fill": "$bg",
+          "content": "CATEGORIA",
+          "fontFamily": "Courier Prime",
+          "fontSize": 11,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "wEfXF",
+      "x": 876.1953753966721,
+      "y": 1135,
+      "name": "Footer",
+      "reusable": true,
+      "width": 375,
+      "fill": "#1a1a1a",
+      "layout": "vertical",
+      "gap": 12,
+      "padding": [
+        16,
+        20
+      ],
+      "children": [
+        {
+          "type": "text",
+          "id": "lGCOV",
+          "name": "FooterLogo",
+          "fill": "#f4f1ea",
+          "content": "BREChÓ DA MARIA",
+          "fontFamily": "Courier Prime",
+          "fontSize": 16,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "text",
+          "id": "k6Dqa6",
+          "name": "FooterCopyright",
+          "fill": "#f4f1ea",
+          "content": "© 2026 Brechó da Maria",
+          "fontFamily": "Courier Prime",
+          "fontSize": 10,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "rectangle",
+          "id": "Ju1p0",
+          "name": "FooterDivider",
+          "opacity": 0.3,
+          "fill": "#f4f1ea",
+          "width": "fill_container",
+          "height": 1
+        },
+        {
+          "type": "frame",
+          "id": "UbWzh",
+          "name": "FooterSocialRow",
+          "width": "fill_container",
+          "gap": 16,
+          "children": [
+            {
+              "type": "text",
+              "id": "NRAYv",
+              "name": "SocialIG",
+              "fill": "#f4f1ea",
+              "content": "IG: @brechodamaria",
+              "fontFamily": "Courier Prime",
+              "fontSize": 10,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "xQzBg",
+              "name": "SocialFB",
+              "fill": "#f4f1ea",
+              "content": "FB: /brechodamaria",
+              "fontFamily": "Courier Prime",
+              "fontSize": 10,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "Ixu5s",
+              "name": "SocialWA",
+              "fill": "#f4f1ea",
+              "content": "WA: (11) 99999-9999",
+              "fontFamily": "Courier Prime",
+              "fontSize": 10,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "Stqhw",
+          "name": "FooterDisclaimer",
+          "opacity": 0.7,
+          "fill": "#f4f1ea",
+          "textGrowth": "fixed-width",
+          "width": "fill_container",
+          "content": "Aviso: Este é um site experimental/pessoal, não uma entidade comercial. Todo o conteúdo é fictício ou destinado apenas a fins de demonstração de design e desenvolvimento. Para saber mais sobre meu trabalho, visite raigomes.dev",
+          "fontFamily": "Courier Prime",
+          "fontSize": 9,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "rectangle",
+          "id": "L89qy",
+          "name": "FooterTopBorder",
+          "fill": "#f5d742",
+          "width": "fill_container",
+          "height": 3
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "xUW5Y",
+      "x": 876.1953753966721,
+      "y": 1391,
+      "name": "Footer Desktop",
+      "reusable": true,
+      "width": 1024,
+      "fill": "#1a1a1a",
+      "layout": "vertical",
+      "gap": 10,
+      "padding": [
+        20,
+        24
+      ],
+      "children": [
+        {
+          "type": "rectangle",
+          "id": "b76kg",
+          "name": "DtTopBorder",
+          "fill": "#f5d742",
+          "width": "fill_container",
+          "height": 3
+        },
+        {
+          "type": "frame",
+          "id": "JhdlB",
+          "name": "DtTopRow",
+          "width": "fill_container",
+          "gap": 24,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "CwXnA",
+              "name": "DtLogo",
+              "fill": "#f4f1ea",
+              "content": "BREChÓ DA MARIA",
+              "fontFamily": "Courier Prime",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "vgqr0",
+              "name": "DtSocialRow",
+              "width": "fill_container",
+              "gap": 20,
+              "justifyContent": "end",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "YILRe",
+                  "name": "DtSocialIG",
+                  "fill": "#f4f1ea",
+                  "content": "IG: @brechodamaria",
+                  "fontFamily": "Courier Prime",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "sZhxO",
+                  "name": "DtSocialFB",
+                  "fill": "#f4f1ea",
+                  "content": "FB: /brechodamaria",
+                  "fontFamily": "Courier Prime",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "voHFG",
+                  "name": "DtSocialWA",
+                  "fill": "#f4f1ea",
+                  "content": "WA: (11) 99999-9999",
+                  "fontFamily": "Courier Prime",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "rectangle",
+          "id": "s35pr",
+          "name": "DtDivider",
+          "opacity": 0.2,
+          "fill": "#f4f1ea",
+          "width": "fill_container",
+          "height": 1
+        },
+        {
+          "type": "frame",
+          "id": "rVyvB",
+          "name": "DtBotRow",
+          "width": "fill_container",
+          "gap": 16,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "MfPyT",
+              "name": "DtCopyright",
+              "fill": "#f4f1ea",
+              "content": "© 2026 Brechó da Maria",
+              "fontFamily": "Courier Prime",
+              "fontSize": 10,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "text",
+              "id": "g4TVsM",
+              "name": "DtDisclaimer",
+              "opacity": 0.7,
+              "fill": "#f4f1ea",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Aviso: Este é um site experimental/pessoal, não uma entidade comercial. Todo o conteúdo é fictício ou destinado apenas a fins de demonstração de design e desenvolvimento. Para saber mais sobre meu trabalho, visite raigomes.dev",
+              "fontFamily": "Courier Prime",
+              "fontSize": 9,
+              "fontWeight": "normal"
             }
           ]
         }
