@@ -49,7 +49,7 @@ export function SecaoNovidades({
         /* Estado 3: Grid de produtos — 2 col mobile, 3 tablet, 4 desktop */
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
           {filtrados.slice(0, maxCards).map((produto, index) => (
-            <CardPolaroid key={produto.id} produto={produto} priority={index < 8} />
+            <CardPolaroid key={produto.id} produto={produto} priority={index === 0} />
           ))}
         </div>
       )}

@@ -6,6 +6,7 @@ import { HomePageContent } from "@/components/home-page-content"
 // HOME PAGE — Catálogo Digital Brechó da Maria
 // Server component: busca dados da Google Sheets (ou fallback mock)
 // Lê searchParams no servidor pra evitar bailout do useSearchParams
+// Preload da primeira imagem para LCP imediato
 // ============================================
 export default async function HomePage(props: {
   searchParams?: Promise<{ categoria?: string }>
