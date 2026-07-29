@@ -17,8 +17,6 @@ function SocialLink({ href, children }: { href: string; children: React.ReactNod
   );
 }
 
-import Image from "next/image";
-
 export function Footer() {
   return (
     <footer className="bg-[#1a1a1a] px-5 py-4 lg:px-6 lg:py-5 flex flex-col gap-3 lg:gap-[10px]">
@@ -29,7 +27,7 @@ export function Footer() {
       <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
         {/* Logo */}
         <div className="flex items-center gap-3">
-          <Image src="/sacola.png" alt="" width={24} height={24} priority />
+          <img src="/sacola.png" alt="" width={24} height={24} />
           <p className="font-mono text-base text-[#f4f1ea] uppercase tracking-[0.15em] lg:text-lg">
             BREChÓ DA MARIA
           </p>

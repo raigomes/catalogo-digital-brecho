@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 type HeaderProps = {
   variant: "home" | "produto";
@@ -48,7 +47,7 @@ export function Header({
         </div>
         {/* Desktop: logo + BREChÓ DA MARIA */}
         <div className="hidden lg:flex items-center gap-3">
-          <Image src="/sacola.png" alt="" width={24} height={24} priority />
+          <img src="/sacola.png" alt="" width={24} height={24} />
           <p className="font-mono text-xl text-[#f4f1ea] uppercase tracking-[0.15em]">
             BREChÓ DA MARIA
           </p>
@@ -72,7 +71,7 @@ export function Header({
   return (
     <header className="bg-[#1a1a1a] px-4 py-4">
       <div className="flex items-center gap-3">
-        <Image src="/sacola.png" alt="" width={24} height={24} priority />
+        <img src="/sacola.png" alt="" width={24} height={24} />
         <h1 className="font-mono text-xl text-[#f4f1ea] uppercase tracking-[0.15em]">
           BREChÓ DA MARIA
         </h1>
