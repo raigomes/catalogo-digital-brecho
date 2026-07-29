@@ -10,9 +10,10 @@ interface CardPolaroidProps {
   produto: Produto
   showTag?: boolean
   priority?: boolean
+  eager?: boolean
 }
 
-export function CardPolaroid({ produto, showTag = true, priority }: CardPolaroidProps) {
+export function CardPolaroid({ produto, showTag = true, priority, eager }: CardPolaroidProps) {
   return (
     <Link
       href={`/produto/${produto.id}`}
@@ -40,6 +41,7 @@ export function CardPolaroid({ produto, showTag = true, priority }: CardPolaroid
             className="object-cover"
             sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
             priority={priority}
+            loading={eager && !priority ? "eager" : undefined}
           />
         </div>
 
