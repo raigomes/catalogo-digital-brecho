@@ -31,7 +31,7 @@ export function InfoProduto({ produto }: Props) {
         <h1 className="font-mono text-base lg:text-2xl uppercase tracking-wider text-[#1a1a1a] font-bold">
           {produto.nome}
         </h1>
-        <p className="font-mono text-sm lg:text-lg text-[#ff3b7f] font-bold mt-1 lg:mt-0">
+        <p className="font-mono text-sm lg:text-lg text-[#c62860] font-bold mt-1 lg:mt-0">
           {formatPreco(produto.preco)}
         </p>
       </div>

@@ -51,7 +51,7 @@ export function CardPolaroid({ produto, showTag = true, priority, eager }: CardP
           <h3 className="font-mono text-xs text-[#1a1a1a] leading-tight">
             {produto.nome}
           </h3>
-          <p className="font-mono text-sm font-bold text-[#e62e6e]">
+          <p className="font-mono text-sm font-bold text-[#c62860]">
             {formatPreco(produto.preco)}
           </p>
         </div>
