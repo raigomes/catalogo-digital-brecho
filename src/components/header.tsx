@@ -54,7 +54,6 @@ export function Header({
             width={24}
             height={24}
             priority
-            fetchPriority="high"
           />
           <p className="font-mono text-xl text-[#f4f1ea] uppercase tracking-[0.15em]">
             BREChÓ DA MARIA
@@ -85,7 +84,6 @@ export function Header({
           width={24}
           height={24}
           priority
-          fetchPriority="high"
         />
         <h1 className="font-mono text-xl text-[#f4f1ea] uppercase tracking-[0.15em]">
           BREChÓ DA MARIA
