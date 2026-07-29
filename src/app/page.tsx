@@ -1,4 +1,3 @@
-import { Suspense } from "react"
 import { fetchProdutos, fetchCategorias } from "@/lib/api"
 import { HomePageContent } from "@/components/home-page-content"
 
@@ -6,7 +5,7 @@ import { HomePageContent } from "@/components/home-page-content"
 // HOME PAGE — Catálogo Digital Brechó da Maria
 // Server component: busca dados da Google Sheets (ou fallback mock)
 // Lê searchParams no servidor pra evitar bailout do useSearchParams
-// Preload da primeira imagem para LCP imediato
+// SEM Suspense — componente renderizado no HTML inicial (LCP imediato)
 // ============================================
 export default async function HomePage(props: {
   searchParams?: Promise<{ categoria?: string }>
@@ -20,12 +19,10 @@ export default async function HomePage(props: {
   ])
 
   return (
-    <Suspense fallback={null}>
-      <HomePageContent
-        produtos={produtos}
-        categorias={categorias}
-        catAtivaSSR={catAtiva}
-      />
-    </Suspense>
+    <HomePageContent
+      produtos={produtos}
+      categorias={categorias}
+      catAtivaSSR={catAtiva}
+    />
   )
 }
