@@ -5,8 +5,7 @@ const nextConfig: NextConfig = {
     viewTransition: true,
   },
   images: {
-    deviceSizes: [320, 640, 1024, 1280],
-    imageSizes: [],
+    // deviceSizes e imageSizes com defaults do Next.js
     remotePatterns: [
       {
         protocol: "https",
