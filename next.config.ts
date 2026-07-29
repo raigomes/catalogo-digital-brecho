@@ -5,6 +5,8 @@ const nextConfig: NextConfig = {
     viewTransition: true,
   },
   images: {
+    deviceSizes: [320, 420, 640, 768, 1024, 1280],
+    imageSizes: [128, 160, 256, 320, 384],
     remotePatterns: [
       {
         protocol: "https",
