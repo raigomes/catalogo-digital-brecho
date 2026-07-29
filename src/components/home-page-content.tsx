@@ -29,7 +29,7 @@ export function HomePageContent({ produtos, categorias }: HomePageContentProps) 
   const [tamAtivo, setTamAtivo] = useState<SizeFilter>("TODOS")
   const [precoAtivo, setPrecoAtivo] = useState<PriceFilter>("TODOS")
   const [erro, setErro] = useState(false)
-  const [loading, setLoading] = useState(true)
+  const loading = false // dados já chegam do servidor, sem estado de carregamento
   const [isOffline, setIsOffline] = useState(
     typeof window !== "undefined" ? !navigator.onLine : false,
   )
@@ -49,13 +49,6 @@ export function HomePageContent({ produtos, categorias }: HomePageContentProps) 
 
   // Debounce de 300ms na busca — evita filtragem a cada tecla
   const buscaDebounced = useDebounce(busca, 300)
-
-  // Simula carregamento inicial (dev).
-  // Em produção, loading será controlado pelo fetch da API (Google Sheets)
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 400)
-    return () => clearTimeout(timer)
-  }, [])
 
   // Detecção de conectividade
   useEffect(() => {
