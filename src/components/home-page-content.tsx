@@ -4,9 +4,8 @@ import { useState, useMemo, useCallback, useEffect } from "react"
 import type { Produto, Categoria, SizeFilter, PriceFilter } from "@/lib/types"
 import { enquadrarPreco } from "@/lib/utils"
 import { useDebounce } from "@/lib/hooks"
-import { useSearchParams, useRouter } from "next/navigation"
+import { useRouter } from "next/navigation"
 import { Header } from "@/components/header"
-import { TagCategoria } from "@/components/tag-categoria"
 import { FiltrosMobile } from "@/components/filtros-mobile"
 import { SidebarFiltros } from "@/components/sidebar-filtros"
 import { SecaoNovidades } from "@/components/secao-novidades"
@@ -14,14 +13,16 @@ import { SecaoNovidades } from "@/components/secao-novidades"
 interface HomePageContentProps {
   produtos: Produto[]
   categorias: Categoria[]
+  catAtivaSSR: string
 }
 
 // ============================================
 // HOME PAGE CONTENT — Catálogo Digital Brechó da Maria
 // Direção visual: Zine Independente
 // Componente client-side com filtros e interação
+// catAtiva vem do servidor pra evitar bailout (useSearchParams)
 // ============================================
-export function HomePageContent({ produtos, categorias }: HomePageContentProps) {
+export function HomePageContent({ produtos, categorias, catAtivaSSR }: HomePageContentProps) {
   // ==========================================
   // ESTADO: controle de filtros e UI
   // ==========================================
@@ -34,11 +35,11 @@ export function HomePageContent({ produtos, categorias }: HomePageContentProps) 
     typeof window !== "undefined" ? !navigator.onLine : false,
   )
 
-  const searchParams = useSearchParams()
   const router = useRouter()
-  const catAtiva = searchParams.get("categoria") || "TODOS"
+  const [catAtiva, setCatAtivaState] = useState(catAtivaSSR)
   const setCatAtiva = useCallback(
     (cat: string) => {
+      setCatAtivaState(cat)
       router.replace(
         cat === "TODOS" ? "/" : `/?categoria=${encodeURIComponent(cat)}`,
         { scroll: false },

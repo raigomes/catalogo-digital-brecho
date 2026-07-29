@@ -5,9 +5,14 @@ import { HomePageContent } from "@/components/home-page-content"
 // ============================================
 // HOME PAGE — Catálogo Digital Brechó da Maria
 // Server component: busca dados da Google Sheets (ou fallback mock)
-// e renderiza o client component com filtros
+// Lê searchParams no servidor pra evitar bailout do useSearchParams
 // ============================================
-export default async function HomePage() {
+export default async function HomePage(props: {
+  searchParams?: Promise<{ categoria?: string }>
+}) {
+  const searchParams = await props.searchParams
+  const catAtiva = searchParams?.categoria || "TODOS"
+
   const [produtos, categorias] = await Promise.all([
     fetchProdutos(),
     fetchCategorias(),
@@ -15,7 +20,11 @@ export default async function HomePage() {
 
   return (
     <Suspense fallback={null}>
-      <HomePageContent produtos={produtos} categorias={categorias} />
+      <HomePageContent
+        produtos={produtos}
+        categorias={categorias}
+        catAtivaSSR={catAtiva}
+      />
     </Suspense>
   )
 }
